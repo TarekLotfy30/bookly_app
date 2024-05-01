@@ -1,3 +1,14 @@
+import 'package:bookly/core/utils/styles/font_weight_helper.dart';
+import 'package:flutter/material.dart';
+
+//abstract 3lshan msh hanshe2 menha object
+abstract class TextStyles {
+  static const TextStyle titleMedium = TextStyle(
+    fontSize: 20,
+    fontWeight: FontWeightHelper.semiBold,
+  );
+}
+
 /*
 import 'package:flutter/material.dart';
 

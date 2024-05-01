@@ -1,3 +1,5 @@
+import 'package:bookly/core/utils/functions/functions.dart';
+import 'package:bookly/core/utils/styles/text_style.dart';
 import 'package:bookly/features/home/ui/widgets/custom_app_bar.dart';
 import 'package:bookly/features/home/ui/widgets/featured_books_list_view.dart';
 import 'package:flutter/material.dart';
