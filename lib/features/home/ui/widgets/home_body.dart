@@ -5,6 +5,13 @@ class _HomeBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Column();
+    return const SafeArea(
+      child: Column(
+        children: [
+          CustomAppBar(),
+          FeaturedBooksListView(),
+        ],
+      ),
+    );
   }
 }

@@ -33,7 +33,7 @@ class _SplashViewBodyState extends State<_SplashViewBody> {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Image.asset(
-          "assets/images/Logo.png",
+          AppImages.booklyLogo,
         ),
         const Text(
           "SEARCH BOOKS FOR FREE!!",
