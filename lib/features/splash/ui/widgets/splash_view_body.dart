@@ -11,9 +11,7 @@ class _SplashViewBodyState extends State<_SplashViewBody> {
   @override
   void initState() {
     super.initState();
-
-    ///TODO: Uncomment this line
-    //navigateToHomeScreen();
+    navigateToHomeScreen();
   }
 
   void navigateToHomeScreen() {
