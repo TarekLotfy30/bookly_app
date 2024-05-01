@@ -39,6 +39,9 @@ class _SplashViewBodyState extends State<_SplashViewBody> {
         ),
         const Text(
           "SEARCH BOOKS FOR FREE!!",
+          style: TextStyle(
+            fontSize: 20.0,
+          ),
           textAlign: TextAlign.center,
         ),
       ],
