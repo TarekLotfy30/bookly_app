@@ -24,7 +24,7 @@ class _HomeBody extends StatelessWidget {
             ),
           ),
           verticalSpacing(20),
-          const BestSellerListViewItem()
+          const BestSellerListViewItem(),
         ],
       ),
     );

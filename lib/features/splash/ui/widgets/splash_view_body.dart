@@ -16,7 +16,7 @@ class _SplashViewBodyState extends State<_SplashViewBody> {
 
   void navigateToHomeScreen() {
     Future.delayed(
-      const Duration(seconds: 2),
+      kTranstionDuration,
       () {
         Navigation.pushAndRemove(
           context,
