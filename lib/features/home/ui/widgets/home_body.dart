@@ -14,7 +14,7 @@ class _HomeBody extends StatelessWidget {
           const Text(
             "Best Seller",
             style: TextStyles.titleMedium,
-          )
+          ),
         ],
       ),
     );
