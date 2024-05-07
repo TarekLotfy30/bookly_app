@@ -7,7 +7,9 @@ class BookDetailsBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return const SafeArea(
       child: Column(
-        children: [],
+        children: [
+          Text("Book Details"),
+        ],
       ),
     );
   }

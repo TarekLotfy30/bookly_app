@@ -18,10 +18,7 @@ class _SplashViewBodyState extends State<_SplashViewBody> {
     Future.delayed(
       kTranstionDuration,
       () {
-        Navigation.pushAndRemove(
-          context,
-          const HomeScreen(),
-        );
+        context.replaceWithNamedRoute(Routes.homeScreen);
       },
     );
   }
