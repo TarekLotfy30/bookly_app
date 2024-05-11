@@ -1,6 +1,7 @@
 import 'package:bookly/core/utils/ROUTES/routes.dart';
 import 'package:bookly/features/home/ui/screen/book_details_screen.dart';
 import 'package:bookly/features/home/ui/screen/home_screen.dart';
+import 'package:bookly/features/search/ui/screen/search_screen.dart';
 import 'package:bookly/features/splash/ui/screen/splash_view_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -18,6 +19,10 @@ class AppRouter {
       case Routes.bookDetailsScreen:
         return MaterialPageRoute(
           builder: (context) => const BookDetailsScreen(),
+        );
+      case Routes.searchScreen:
+        return MaterialPageRoute(
+          builder: (context) => const SearchScreen(),
         );
       default:
         return MaterialPageRoute(

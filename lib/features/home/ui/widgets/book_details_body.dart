@@ -11,7 +11,6 @@ class BookDetailsBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CustomScrollView(
-      physics: const BouncingScrollPhysics(),
       slivers: [
         SliverFillRemaining(
           hasScrollBody: false,
@@ -25,7 +24,7 @@ class BookDetailsBody extends StatelessWidget {
                 const CustomBookDetailsAppBar(),
                 const BookDetailsSection(),
                 Expanded(
-                  child: verticalSpacing(30),
+                  child: verticalSpacing(50),
                 ),
                 const SimilarBooksSection(),
                 verticalSpacing(20),
@@ -33,6 +32,7 @@ class BookDetailsBody extends StatelessWidget {
                   "© 2022, Bookly".toUpperCase(),
                   style: Styles.textStyle14,
                 ),
+                verticalSpacing(30),
               ],
             ),
           ),

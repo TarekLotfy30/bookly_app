@@ -1,4 +1,6 @@
+import 'package:bookly/core/utils/ROUTES/routes.dart';
 import 'package:bookly/core/utils/images/images.dart';
+import 'package:bookly/core/utils/navigation/extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -19,9 +21,14 @@ class CustomAppBar extends StatelessWidget {
             AppImages.booklyLogo,
             height: 20,
           ),
-          const Icon(
-            FontAwesomeIcons.magnifyingGlass,
-            size: 24,
+          IconButton(
+            onPressed: () {
+              context.navigateToNamedRoute(Routes.searchScreen);
+            },
+            icon: const Icon(
+              FontAwesomeIcons.magnifyingGlass,
+              size: 24,
+            ),
           ),
         ],
       ),
