@@ -1,8 +1,9 @@
 import 'package:bookly/core/utils/functions/functions.dart';
 import 'package:bookly/core/utils/styles/font_weight_helper.dart';
 import 'package:bookly/core/utils/styles/text_style.dart';
+import 'package:bookly/features/home/ui/widgets/book_actions.dart';
+import 'package:bookly/features/home/ui/widgets/book_rating.dart';
 import 'package:bookly/features/home/ui/widgets/custom_book_details_image.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class BookDetailsSection extends StatelessWidget {
@@ -18,7 +19,7 @@ class BookDetailsSection extends StatelessWidget {
           ),
           child: const CustomBookDetailsImage(),
         ),
-        verticalSpacing(35),
+        verticalSpacing(20),
         Text(
           "The Jungle Book",
           style: Styles.textStyle30.copyWith(
@@ -35,6 +36,12 @@ class BookDetailsSection extends StatelessWidget {
             ),
           ),
         ),
+        verticalSpacing(15),
+        const BookRating(
+          mainAxisAlignment: MainAxisAlignment.center,
+        ),
+        verticalSpacing(20),
+        const BookActions(),
       ],
     );
   }
