@@ -50,7 +50,7 @@ class CustomElevatedButton extends StatelessWidget {
             bottomRight: Radius.circular(bottomRightBorderRadius ?? 0),
           ),
         ),
-        shadowColor: Colors.blue,
+        shadowColor: Colors.red,
         visualDensity: VisualDensity.adaptivePlatformDensity,
         tapTargetSize: MaterialTapTargetSize.shrinkWrap,
         surfaceTintColor: Colors.transparent,

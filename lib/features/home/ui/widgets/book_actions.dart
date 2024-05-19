@@ -27,16 +27,20 @@ class BookActions extends StatelessWidget {
           ),
         ),
         Expanded(
-          child: CustomElevatedButton(
-            onPressed: () {},
-            buttonText: "Free preview",
-            textStyle: Styles.textStyle18.copyWith(
-              fontWeight: FontWeightHelper.regular,
-              color: Colors.white,
+          child: Material(
+            elevation: 10,
+            shadowColor: Colors.pink.shade200,
+            child: CustomElevatedButton(
+              onPressed: () {},
+              buttonText: "Free preview",
+              textStyle: Styles.textStyle18.copyWith(
+                fontWeight: FontWeightHelper.regular,
+                color: Colors.white,
+              ),
+              buttonBackgroundColor: const Color(0xffEF8262),
+              bottomLeftBorderRadius: 15,
+              topRightBorderRadius: 15,
             ),
-            buttonBackgroundColor: const Color(0xffEF8262),
-            bottomLeftBorderRadius: 15,
-            topRightBorderRadius: 15,
           ),
         ),
       ],
