@@ -1,4 +1,4 @@
-import 'package:bookly/core/utils/ROUTES/routes.dart';
+import 'package:bookly/core/routes/routes.dart';
 import 'package:bookly/features/home/ui/screen/book_details_screen.dart';
 import 'package:bookly/features/home/ui/screen/home_screen.dart';
 import 'package:bookly/features/search/ui/screen/search_screen.dart';

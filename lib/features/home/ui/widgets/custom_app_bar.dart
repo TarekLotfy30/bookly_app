@@ -1,4 +1,4 @@
-import 'package:bookly/core/utils/ROUTES/routes.dart';
+import 'package:bookly/core/routes/routes.dart';
 import 'package:bookly/core/utils/images/images.dart';
 import 'package:bookly/core/utils/navigation/extensions.dart';
 import 'package:flutter/material.dart';
