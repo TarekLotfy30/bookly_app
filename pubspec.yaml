@@ -28,6 +28,8 @@ flutter:
   assets:
     - assets/
     - assets/images/
+    - assets/fonts/
+    - assets/fonts/Hanuman/
 
 
   fonts:
