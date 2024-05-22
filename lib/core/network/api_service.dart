@@ -18,7 +18,6 @@ class ApiService {
     print(response.data);
     print(response.statusCode);
     print(response.statusMessage);
-    print(response.headers);
     return response.data;
   }
 }

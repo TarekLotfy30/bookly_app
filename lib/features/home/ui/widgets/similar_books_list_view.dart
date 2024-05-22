@@ -1,4 +1,4 @@
-import 'package:bookly/core/utils/functions/functions.dart';
+/*import 'package:bookly/core/utils/functions/functions.dart';
 import 'package:bookly/features/home/ui/widgets/custom_list_view_item.dart';
 import 'package:flutter/material.dart';
 
@@ -17,4 +17,4 @@ class SimilarBooksListView extends StatelessWidget {
       ),
     );
   }
-}
+}*/

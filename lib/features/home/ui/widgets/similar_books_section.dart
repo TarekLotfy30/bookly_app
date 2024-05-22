@@ -1,3 +1,4 @@
+/*
 import 'package:bookly/core/utils/functions/functions.dart';
 import 'package:bookly/core/utils/styles/text_style.dart';
 import 'package:bookly/features/home/ui/widgets/similar_books_list_view.dart';
@@ -23,3 +24,4 @@ class SimilarBooksSection extends StatelessWidget {
     );
   }
 }
+*/
