@@ -14,10 +14,6 @@ class ApiService {
       endPoint,
       queryParameters: params,
     );
-    print("Iam in ApiService (DioHelper)");
-    print(response.data);
-    print(response.statusCode);
-    print(response.statusMessage);
     return response.data;
   }
 }

@@ -17,7 +17,7 @@ class BestSellerListViewItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        context.navigateToNamedRoute(Routes.bookDetailsScreen);
+        context.navigateToNamedRoute(Routes.bookDetailsScreen, arguments: book);
       },
       borderRadius: BorderRadius.circular(10),
       splashColor: Colors.transparent,

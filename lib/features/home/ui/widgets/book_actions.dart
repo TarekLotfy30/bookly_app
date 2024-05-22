@@ -16,7 +16,7 @@ class BookActions extends StatelessWidget {
         Expanded(
           child: CustomElevatedButton(
             onPressed: () {},
-            buttonText: "19.99€",
+            buttonText: "Free",
             textStyle: Styles.textStyle18.copyWith(
               color: Colors.black,
               fontWeight: FontWeightHelper.regular,

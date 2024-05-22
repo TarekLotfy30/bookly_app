@@ -17,7 +17,11 @@ class HomeRepoImpl implements HomeRepo {
       var data = await apiService.getData(endPoint: EndPoints.featuredBooks);
       List<BookModel> books = [];
       for (var item in data['items']) {
-        books.add(BookModel.fromJson(item));
+        try {
+          books.add(BookModel.fromJson(item));
+        } on Exception catch (_) {
+          books.add(BookModel.fromJson(item));
+        }
       }
       return right(books);
     } catch (e) {
