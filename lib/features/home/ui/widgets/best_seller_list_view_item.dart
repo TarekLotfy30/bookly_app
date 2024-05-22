@@ -3,12 +3,15 @@ import 'package:bookly/core/routes/routes.dart';
 import 'package:bookly/core/utils/functions/functions.dart';
 import 'package:bookly/core/utils/navigation/extensions.dart';
 import 'package:bookly/core/utils/styles/text_style.dart';
+import 'package:bookly/features/home/data/models/book_model/book_model.dart';
 import 'package:bookly/features/home/ui/widgets/book_image.dart';
 import 'package:bookly/features/home/ui/widgets/book_rating.dart';
 import 'package:flutter/material.dart';
 
 class BestSellerListViewItem extends StatelessWidget {
-  const BestSellerListViewItem({super.key});
+  const BestSellerListViewItem({super.key, required this.book});
+
+  final BookModel book;
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +29,7 @@ class BestSellerListViewItem extends StatelessWidget {
         child: Row(
           children: [
             //Book Picture
-            const BookImage(),
+            BookImage(image: book.volumeInfo?.imageLinks?.thumbnail ?? ""),
             horizontalSpacing(30),
             Expanded(
               child: Padding(
@@ -36,17 +39,17 @@ class BestSellerListViewItem extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
                     Text(
-                      "Harry Potter and the Goblet of Fire",
+                      book.volumeInfo?.title ?? "",
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
                       style: Styles.textStyle20.copyWith(
                         fontFamily: kHanuman,
                       ),
                     ),
-                    const Opacity(
+                    Opacity(
                       opacity: 0.6,
                       child: Text(
-                        "J.K. Rowling",
+                        book.volumeInfo?.authors?.first ?? "",
                         style: Styles.textStyle14,
                       ),
                     ),
@@ -54,7 +57,7 @@ class BestSellerListViewItem extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          "19.99 €",
+                          "Free",
                           style: Styles.textStyle16,
                         ),
                         BookRating(),

@@ -1,7 +1,6 @@
 import 'package:bookly/core/utils/functions/functions.dart';
 import 'package:bookly/core/utils/styles/text_style.dart';
 import 'package:bookly/core/widgets/app_text_form_field.dart';
-import 'package:bookly/features/splash/ui/widgets/search_result_list_view.dart';
 import 'package:flutter/material.dart';
 
 class SearchViewBody extends StatelessWidget {
@@ -33,9 +32,11 @@ class SearchViewBody extends StatelessWidget {
             style: Styles.textStyle18,
           ),
           verticalSpacing(16),
-          const Expanded(
+
+          ///TODO: Add Search Result List View
+          /*  const Expanded(
             child: SearchResultListView(),
-          ),
+          ),*/
         ],
       ),
     );

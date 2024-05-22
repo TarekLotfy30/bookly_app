@@ -31,19 +31,32 @@ class _HomeBody extends StatelessWidget {
               ],
             ),
           ),
-          SliverList(
-            delegate: SliverChildBuilderDelegate(
-              childCount: 10,
-              (context, index) {
-                return const Padding(
-                  padding: EdgeInsets.symmetric(
-                    vertical: AppPadding.p10,
-                    horizontal: AppPadding.p20,
+          BlocBuilder<NewestBooksCubit, NewestBooksState>(
+            builder: (context, state) {
+              if (state is NewestBooksSuccess) {
+                return SliverList(
+                  delegate: SliverChildBuilderDelegate(
+                    childCount: state.books.length,
+                    (context, index) {
+                      return Padding(
+                        padding: const EdgeInsets.symmetric(
+                          vertical: AppPadding.p10,
+                          horizontal: AppPadding.p20,
+                        ),
+                        child: BestSellerListViewItem(book: state.books[index]),
+                      );
+                    },
                   ),
-                  child: BestSellerListViewItem(),
                 );
-              },
-            ),
+              } else if (state is NewestBooksFailure) {
+                return SliverToBoxAdapter(
+                  child: CustomErrorWidget(errMessage: state.errorMessage),
+                );
+              }
+              return const SliverToBoxAdapter(
+                child: CustomLoadingIndicator(),
+              );
+            },
           ),
         ],
       ),
