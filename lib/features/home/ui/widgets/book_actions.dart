@@ -1,7 +1,8 @@
-import 'package:bookly/core/utils/styles/font_weight_helper.dart';
-import 'package:bookly/core/utils/styles/text_style.dart';
-import 'package:bookly/core/widgets/app_button_widget.dart';
 import 'package:flutter/material.dart';
+
+import '../../../../core/utils/styles/font_weight_helper.dart';
+import '../../../../core/utils/styles/text_style.dart';
+import '../../../../core/widgets/app_button_widget.dart';
 
 class BookActions extends StatelessWidget {
   const BookActions({
@@ -16,7 +17,7 @@ class BookActions extends StatelessWidget {
         Expanded(
           child: CustomElevatedButton(
             onPressed: () {},
-            buttonText: "Free",
+            buttonText: 'Free',
             textStyle: Styles.textStyle18.copyWith(
               color: Colors.black,
               fontWeight: FontWeightHelper.regular,
@@ -32,7 +33,7 @@ class BookActions extends StatelessWidget {
             shadowColor: Colors.pink.shade200,
             child: CustomElevatedButton(
               onPressed: () {},
-              buttonText: "Free preview",
+              buttonText: 'Free preview',
               textStyle: Styles.textStyle18.copyWith(
                 fontWeight: FontWeightHelper.regular,
                 color: Colors.white,

@@ -1,15 +1,16 @@
-import 'package:bookly/core/errors/failure.dart';
-import 'package:bookly/core/network/api_service.dart';
-import 'package:bookly/core/network/endpoints.dart';
-import 'package:bookly/features/home/data/models/book_model/book_model.dart';
-import 'package:bookly/features/home/data/repo/home_repo.dart';
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 
-class HomeRepoImpl implements HomeRepo {
-  final ApiService apiService;
+import '../../../../core/errors/failure.dart';
+import '../../../../core/network/api_service.dart';
+import '../../../../core/network/endpoints.dart';
+import '../models/book_model/book_model.dart';
+import 'home_repo.dart';
 
+class HomeRepoImpl implements HomeRepo {
   HomeRepoImpl({required this.apiService});
+
+  final ApiService apiService;
 
   @override
   Future<Either<Failure, List<BookModel>>> fetchFeaturedBooks() async {
@@ -24,7 +25,7 @@ class HomeRepoImpl implements HomeRepo {
         }
       }
       return right(books);
-    } catch (e) {
+    } on Exception catch (e) {
       if (e is DioException) {
         return left(ServerFailure.fromDioError(e));
       }
@@ -41,7 +42,7 @@ class HomeRepoImpl implements HomeRepo {
         books.add(BookModel.fromJson(item));
       }
       return right(books);
-    } catch (e) {
+    } on Exception catch (e) {
       if (e is DioException) {
         return left(ServerFailure.fromDioError(e));
       }

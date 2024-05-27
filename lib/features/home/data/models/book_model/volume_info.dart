@@ -6,27 +6,6 @@ import 'panelization_summary.dart';
 import 'reading_modes.dart';
 
 class VolumeInfo extends Equatable {
-  final String? title;
-  final String? subtitle;
-  final List<String>? authors; // LIST<dYNAMIC>
-  final String? publisher;
-  final String? publishedDate;
-  final String? description;
-  final List<IndustryIdentifier>? industryIdentifiers;
-  final ReadingModes? readingModes;
-  final int? pageCount;
-  final String? printType;
-  final List<String>? categories;
-  final String? maturityRating;
-  final bool? allowAnonLogging;
-  final String? contentVersion;
-  final PanelizationSummary? panelizationSummary;
-  final ImageLinks? imageLinks;
-  final String? language;
-  final String? previewLink;
-  final String? infoLink;
-  final String? canonicalVolumeLink;
-
   const VolumeInfo({
     this.title,
     this.subtitle,
@@ -63,7 +42,8 @@ class VolumeInfo extends Equatable {
         readingModes: json['readingModes'] == null
             ? null
             : ReadingModes.fromJson(
-                json['readingModes'] as Map<String, dynamic>),
+                json['readingModes'] as Map<String, dynamic>,
+              ),
         pageCount: json['pageCount'] as int?,
         printType: json['printType'] as String?,
         categories: (json['categories'] as List<dynamic>?)?.cast<String>(),
@@ -73,7 +53,8 @@ class VolumeInfo extends Equatable {
         panelizationSummary: json['panelizationSummary'] == null
             ? null
             : PanelizationSummary.fromJson(
-                json['panelizationSummary'] as Map<String, dynamic>),
+                json['panelizationSummary'] as Map<String, dynamic>,
+              ),
         imageLinks: json['imageLinks'] == null
             ? null
             : ImageLinks.fromJson(json['imageLinks'] as Map<String, dynamic>),
@@ -82,6 +63,26 @@ class VolumeInfo extends Equatable {
         infoLink: json['infoLink'] as String?,
         canonicalVolumeLink: json['canonicalVolumeLink'] as String?,
       );
+  final String? title;
+  final String? subtitle;
+  final List<String>? authors; // LIST<dYNAMIC>
+  final String? publisher;
+  final String? publishedDate;
+  final String? description;
+  final List<IndustryIdentifier>? industryIdentifiers;
+  final ReadingModes? readingModes;
+  final int? pageCount;
+  final String? printType;
+  final List<String>? categories;
+  final String? maturityRating;
+  final bool? allowAnonLogging;
+  final String? contentVersion;
+  final PanelizationSummary? panelizationSummary;
+  final ImageLinks? imageLinks;
+  final String? language;
+  final String? previewLink;
+  final String? infoLink;
+  final String? canonicalVolumeLink;
 
   Map<String, dynamic> toJson() => {
         'title': title,

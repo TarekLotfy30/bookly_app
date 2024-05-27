@@ -1,9 +1,6 @@
 import 'package:equatable/equatable.dart';
 
 class PanelizationSummary extends Equatable {
-  final bool? containsEpubBubbles;
-  final bool? containsImageBubbles;
-
   const PanelizationSummary({
     this.containsEpubBubbles,
     this.containsImageBubbles,
@@ -15,6 +12,9 @@ class PanelizationSummary extends Equatable {
       containsImageBubbles: json['containsImageBubbles'] as bool?,
     );
   }
+
+  final bool? containsEpubBubbles;
+  final bool? containsImageBubbles;
 
   Map<String, dynamic> toJson() => {
         'containsEpubBubbles': containsEpubBubbles,

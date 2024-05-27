@@ -1,12 +1,13 @@
-import 'package:bookly/constants.dart';
-import 'package:bookly/core/routes/routes.dart';
-import 'package:bookly/core/utils/functions/functions.dart';
-import 'package:bookly/core/utils/navigation/extensions.dart';
-import 'package:bookly/core/utils/styles/text_style.dart';
-import 'package:bookly/features/home/data/models/book_model/book_model.dart';
-import 'package:bookly/features/home/ui/widgets/book_image.dart';
-import 'package:bookly/features/home/ui/widgets/book_rating.dart';
 import 'package:flutter/material.dart';
+
+import '../../../../constants.dart';
+import '../../../../core/routes/routes.dart';
+import '../../../../core/utils/functions/functions.dart';
+import '../../../../core/utils/navigation/extensions.dart';
+import '../../../../core/utils/styles/text_style.dart';
+import '../../data/models/book_model/book_model.dart';
+import 'book_image.dart';
+import 'book_rating.dart';
 
 class BestSellerListViewItem extends StatelessWidget {
   const BestSellerListViewItem({super.key, required this.book});
@@ -16,8 +17,11 @@ class BestSellerListViewItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {
-        context.navigateToNamedRoute(Routes.bookDetailsScreen, arguments: book);
+      onTap: () async {
+        context.navigateToNamedRoute(
+          Routes.bookDetailsScreen,
+          arguments: book,
+        );
       },
       borderRadius: BorderRadius.circular(10),
       splashColor: Colors.transparent,
@@ -29,7 +33,7 @@ class BestSellerListViewItem extends StatelessWidget {
         child: Row(
           children: [
             //Book Picture
-            BookImage(image: book.volumeInfo?.imageLinks?.thumbnail ?? ""),
+            BookImage(image: book.volumeInfo?.imageLinks?.thumbnail ?? ''),
             horizontalSpacing(30),
             Expanded(
               child: Padding(
@@ -39,7 +43,7 @@ class BestSellerListViewItem extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
                     Text(
-                      book.volumeInfo?.title ?? "",
+                      book.volumeInfo?.title ?? '',
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
                       style: Styles.textStyle20.copyWith(
@@ -49,7 +53,7 @@ class BestSellerListViewItem extends StatelessWidget {
                     Opacity(
                       opacity: 0.6,
                       child: Text(
-                        book.volumeInfo?.authors?.first ?? "",
+                        book.volumeInfo?.authors?.first ?? '',
                         style: Styles.textStyle14,
                       ),
                     ),
@@ -57,7 +61,7 @@ class BestSellerListViewItem extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          "Free",
+                          'Free',
                           style: Styles.textStyle16,
                         ),
                         BookRating(),

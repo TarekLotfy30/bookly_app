@@ -11,11 +11,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
+  // ignore: avoid_types_on_closure_parameters
   testWidgets('Counter increments smoke test', (WidgetTester tester) async {
     // Build our app and trigger a frame.
-    await tester.pumpWidget(BooklyApp(
-      appRouter: AppRouter(),
-    ));
+    await tester.pumpWidget(
+      BooklyApp(
+        appRouter: AppRouter(),
+      ),
+    );
 
     // Verify that our counter starts at 0.
     expect(find.text('0'), findsOneWidget);

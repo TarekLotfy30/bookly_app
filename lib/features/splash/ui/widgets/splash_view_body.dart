@@ -17,9 +17,7 @@ class _SplashViewBodyState extends State<_SplashViewBody> {
   void navigateToHomeScreen() {
     Future.delayed(
       kTranstionDuration,
-      () {
-        context.replaceWithNamedRoute(Routes.homeScreen);
-      },
+      () async => context.replaceWithNamedRoute(Routes.homeScreen),
     );
   }
 
@@ -33,9 +31,9 @@ class _SplashViewBodyState extends State<_SplashViewBody> {
           AppImages.booklyLogo,
         ),
         const Text(
-          "SEARCH BOOKS FOR FREE!!",
+          'SEARCH BOOKS FOR FREE!!',
           style: TextStyle(
-            fontSize: 20.0,
+            fontSize: 20,
           ),
           textAlign: TextAlign.center,
         ),

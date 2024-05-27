@@ -1,5 +1,6 @@
-import 'package:bookly/core/utils/navigation/extensions.dart';
 import 'package:flutter/material.dart';
+
+import '../../../../core/utils/navigation/extensions.dart';
 
 class CustomBookDetailsAppBar extends StatelessWidget {
   const CustomBookDetailsAppBar({

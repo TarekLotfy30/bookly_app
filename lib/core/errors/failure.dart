@@ -1,9 +1,9 @@
 import 'package:dio/dio.dart';
 
 abstract class Failure {
-  final String errMessage;
-
   const Failure(this.errMessage);
+
+  final String errMessage;
 }
 
 class ServerFailure extends Failure {
@@ -41,7 +41,10 @@ class ServerFailure extends Failure {
     }
   }
 
-  factory ServerFailure.fromResponse(int? statusCode, dynamic response) {
+  factory ServerFailure.fromResponse(
+    int? statusCode,
+    Map<String, dynamic> response,
+  ) {
     const statusBadRequest = 400;
     const statusUnauthorized = 401;
     const statusForbidden = 403;
@@ -51,6 +54,7 @@ class ServerFailure extends Failure {
       case statusBadRequest:
       case statusUnauthorized:
       case statusForbidden:
+        // ignore: avoid_dynamic_calls
         return ServerFailure(response['error']['message']);
       case statusNotFound:
         return ServerFailure('Your request not found, Please try later!');

@@ -1,10 +1,11 @@
-import 'package:bookly/core/utils/functions/functions.dart';
-import 'package:bookly/core/widgets/custom_error_widget.dart';
-import 'package:bookly/core/widgets/custom_loading_indicator.dart';
-import 'package:bookly/features/home/logic/featured_books_cubit/featured_books_cubit.dart';
-import 'package:bookly/features/home/ui/widgets/custom_list_view_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
+import '../../../../core/utils/functions/functions.dart';
+import '../../../../core/widgets/custom_error_widget.dart';
+import '../../../../core/widgets/custom_loading_indicator.dart';
+import '../../logic/featured_books_cubit/featured_books_cubit.dart';
+import 'custom_list_view_item.dart';
 
 class FeaturedBooksListView extends StatelessWidget {
   const FeaturedBooksListView({
@@ -29,7 +30,7 @@ class FeaturedBooksListView extends StatelessWidget {
                           '',
                 ),
               ),
-              separatorBuilder: (context, index) => horizontalSpacing(7.0),
+              separatorBuilder: (context, index) => horizontalSpacing(7),
               itemCount: state.books.length,
               scrollDirection: Axis.horizontal,
             ),

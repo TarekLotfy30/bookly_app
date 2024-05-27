@@ -4,17 +4,6 @@ import 'epub.dart';
 import 'pdf.dart';
 
 class AccessInfo extends Equatable {
-  final String? country;
-  final String? viewability;
-  final bool? embeddable;
-  final bool? publicDomain;
-  final String? textToSpeechPermission;
-  final Epub? epub;
-  final Pdf? pdf;
-  final String? webReaderLink;
-  final String? accessViewStatus;
-  final bool? quoteSharingAllowed;
-
   const AccessInfo({
     this.country,
     this.viewability,
@@ -44,6 +33,16 @@ class AccessInfo extends Equatable {
         accessViewStatus: json['accessViewStatus'] as String?,
         quoteSharingAllowed: json['quoteSharingAllowed'] as bool?,
       );
+  final String? country;
+  final String? viewability;
+  final bool? embeddable;
+  final bool? publicDomain;
+  final String? textToSpeechPermission;
+  final Epub? epub;
+  final Pdf? pdf;
+  final String? webReaderLink;
+  final String? accessViewStatus;
+  final bool? quoteSharingAllowed;
 
   Map<String, dynamic> toJson() => {
         'country': country,

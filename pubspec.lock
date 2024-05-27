@@ -191,10 +191,10 @@ packages:
     dependency: "direct main"
     description:
       name: get_it
-      sha256: d85128a5dae4ea777324730dc65edd9c9f43155c109d5cc0a69cab74139fbac1
+      sha256: ef262ba83a1222b2af288d726fdd9528306164095a1a80524b074139b9f7b25d
       url: "https://pub.dev"
     source: hosted
-    version: "7.7.0"
+    version: "8.0.0-pre-1"
   google_fonts:
     dependency: "direct main"
     description:

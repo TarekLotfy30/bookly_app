@@ -5,14 +5,6 @@ import 'sale_info.dart';
 import 'volume_info.dart';
 
 class BookModel extends Equatable {
-  final String? kind;
-  final String? id;
-  final String? etag;
-  final String? selfLink;
-  final VolumeInfo? volumeInfo;
-  final SaleInfo? saleInfo;
-  final AccessInfo? accessInfo;
-
   const BookModel({
     this.kind,
     this.id,
@@ -38,6 +30,13 @@ class BookModel extends Equatable {
             ? null
             : AccessInfo.fromJson(json['accessInfo'] as Map<String, dynamic>),
       );
+  final String? kind;
+  final String? id;
+  final String? etag;
+  final String? selfLink;
+  final VolumeInfo? volumeInfo;
+  final SaleInfo? saleInfo;
+  final AccessInfo? accessInfo;
 
   Map<String, dynamic> toJson() => {
         'kind': kind,

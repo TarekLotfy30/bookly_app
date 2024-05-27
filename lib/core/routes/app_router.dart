@@ -1,10 +1,11 @@
-import 'package:bookly/core/routes/routes.dart';
-import 'package:bookly/features/home/data/models/book_model/book_model.dart';
-import 'package:bookly/features/home/ui/screen/book_details_screen.dart';
-import 'package:bookly/features/home/ui/screen/home_screen.dart';
-import 'package:bookly/features/search/ui/screen/search_screen.dart';
-import 'package:bookly/features/splash/ui/screen/splash_view_screen.dart';
 import 'package:flutter/material.dart';
+
+import '../../features/home/data/models/book_model/book_model.dart';
+import '../../features/home/ui/screen/book_details_screen.dart';
+import '../../features/home/ui/screen/home_screen.dart';
+import '../../features/search/ui/screen/search_screen.dart';
+import '../../features/splash/ui/screen/splash_view_screen.dart';
+import 'routes.dart';
 
 class AppRouter {
   Route<dynamic> generateRoute(RouteSettings settings) {

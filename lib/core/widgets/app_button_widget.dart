@@ -1,19 +1,6 @@
 import 'package:flutter/material.dart';
 
 class CustomElevatedButton extends StatelessWidget {
-  final VoidCallback onPressed;
-  final double? horizontalPadding;
-  final double? verticalPadding;
-  final Color? buttonBackgroundColor;
-  final double? buttonWidth;
-  final double? buttonHeight;
-  final double? topLeftBorderRadius;
-  final double? topRightBorderRadius;
-  final double? bottomLeftBorderRadius;
-  final double? bottomRightBorderRadius;
-  final String buttonText;
-  final TextStyle? textStyle;
-
   const CustomElevatedButton({
     super.key,
     required this.onPressed,
@@ -29,6 +16,19 @@ class CustomElevatedButton extends StatelessWidget {
     this.bottomLeftBorderRadius,
     this.bottomRightBorderRadius,
   });
+
+  final VoidCallback onPressed;
+  final double? horizontalPadding;
+  final double? verticalPadding;
+  final Color? buttonBackgroundColor;
+  final double? buttonWidth;
+  final double? buttonHeight;
+  final double? topLeftBorderRadius;
+  final double? topRightBorderRadius;
+  final double? bottomLeftBorderRadius;
+  final double? bottomRightBorderRadius;
+  final String buttonText;
+  final TextStyle? textStyle;
 
   @override
   Widget build(BuildContext context) {

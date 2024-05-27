@@ -1,11 +1,12 @@
-import 'package:bookly/core/utils/functions/functions.dart';
-import 'package:bookly/core/utils/styles/font_weight_helper.dart';
-import 'package:bookly/core/utils/styles/text_style.dart';
-import 'package:bookly/features/home/data/models/book_model/book_model.dart';
-import 'package:bookly/features/home/ui/widgets/book_actions.dart';
-import 'package:bookly/features/home/ui/widgets/book_rating.dart';
-import 'package:bookly/features/home/ui/widgets/custom_book_details_image.dart';
 import 'package:flutter/material.dart';
+
+import '../../../../core/utils/functions/functions.dart';
+import '../../../../core/utils/styles/font_weight_helper.dart';
+import '../../../../core/utils/styles/text_style.dart';
+import '../../data/models/book_model/book_model.dart';
+import 'book_actions.dart';
+import 'book_rating.dart';
+import 'custom_book_details_image.dart';
 
 class BookDetailsSection extends StatelessWidget {
   const BookDetailsSection({
@@ -24,11 +25,12 @@ class BookDetailsSection extends StatelessWidget {
             horizontal: MediaQuery.of(context).size.width * 0.2,
           ),
           child: CustomBookDetailsImage(
-              image: book.volumeInfo?.imageLinks?.thumbnail ?? ""),
+            image: book.volumeInfo?.imageLinks?.thumbnail ?? '',
+          ),
         ),
         verticalSpacing(20),
         Text(
-          book.volumeInfo?.title ?? "",
+          book.volumeInfo?.title ?? '',
           style: Styles.textStyle30.copyWith(
             fontWeight: FontWeightHelper.regular,
           ),
@@ -40,7 +42,7 @@ class BookDetailsSection extends StatelessWidget {
         Opacity(
           opacity: 0.7,
           child: Text(
-            book.volumeInfo?.authors?.first ?? "",
+            book.volumeInfo?.authors?.first ?? '',
             style: Styles.textStyle18.copyWith(
               fontWeight: FontWeightHelper.regular,
             ),

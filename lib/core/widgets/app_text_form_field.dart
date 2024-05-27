@@ -1,24 +1,9 @@
-import 'package:bookly/core/utils/colors/app_colors.dart';
-import 'package:bookly/core/utils/styles/text_style.dart';
 import 'package:flutter/material.dart';
 
-class AppTextFormField extends StatelessWidget {
-  final TextEditingController? controller;
-  final TextInputType? keyboardType;
-  final TextInputAction? textInputAction;
-  final FormFieldValidator? validate;
-  final AutovalidateMode? autoValidateMode;
-  final void Function(String)? onChanged;
-  final EdgeInsetsGeometry? contentPadding;
-  final InputBorder? enabledBorder;
-  final InputBorder? focusedBorder;
-  final InputBorder? errorBorder;
-  final InputBorder? focusedErrorBorder;
-  final TextStyle? hintStyle;
-  final String hintText;
-  final bool? isObscureText;
-  final Widget? suffixIcon;
+import '../utils/colors/app_colors.dart';
+import '../utils/styles/text_style.dart';
 
+class AppTextFormField extends StatelessWidget {
   const AppTextFormField({
     super.key,
     this.controller,
@@ -37,6 +22,22 @@ class AppTextFormField extends StatelessWidget {
     this.isObscureText,
     this.suffixIcon,
   });
+
+  final TextEditingController? controller;
+  final TextInputType? keyboardType;
+  final TextInputAction? textInputAction;
+  final FormFieldValidator? validate;
+  final AutovalidateMode? autoValidateMode;
+  final void Function(String)? onChanged;
+  final EdgeInsetsGeometry? contentPadding;
+  final InputBorder? enabledBorder;
+  final InputBorder? focusedBorder;
+  final InputBorder? errorBorder;
+  final InputBorder? focusedErrorBorder;
+  final TextStyle? hintStyle;
+  final String hintText;
+  final bool? isObscureText;
+  final Widget? suffixIcon;
 
   @override
   Widget build(BuildContext context) {

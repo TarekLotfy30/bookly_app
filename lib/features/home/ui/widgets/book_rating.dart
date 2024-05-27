@@ -1,8 +1,9 @@
-import 'package:bookly/core/utils/functions/functions.dart';
-import 'package:bookly/core/utils/styles/font_weight_helper.dart';
-import 'package:bookly/core/utils/styles/text_style.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+
+import '../../../../core/utils/functions/functions.dart';
+import '../../../../core/utils/styles/font_weight_helper.dart';
+import '../../../../core/utils/styles/text_style.dart';
 
 class BookRating extends StatelessWidget {
   const BookRating({
@@ -24,14 +25,14 @@ class BookRating extends StatelessWidget {
         ),
         horizontalSpacing(7),
         const Text(
-          "4.8 ",
+          '4.8 ',
           style: Styles.textStyle14,
         ),
         horizontalSpacing(7),
         Opacity(
           opacity: 0.5,
           child: Text(
-            "(2000)",
+            '(2000)',
             style: Styles.textStyle14.copyWith(
               fontWeight: FontWeightHelper.semiBold,
             ),

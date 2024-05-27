@@ -1,7 +1,8 @@
-import 'package:bookly/core/utils/functions/functions.dart';
-import 'package:bookly/core/utils/styles/text_style.dart';
-import 'package:bookly/core/widgets/app_text_form_field.dart';
 import 'package:flutter/material.dart';
+
+import '../../../../core/utils/functions/functions.dart';
+import '../../../../core/utils/styles/text_style.dart';
+import '../../../../core/widgets/app_text_form_field.dart';
 
 class SearchViewBody extends StatelessWidget {
   const SearchViewBody({super.key});
@@ -20,7 +21,7 @@ class SearchViewBody extends StatelessWidget {
             validate: (value) {
               return null;
             },
-            hintText: "Search",
+            hintText: 'Search',
             onChanged: (value) {},
             suffixIcon: const Icon(
               Icons.search,
@@ -28,12 +29,12 @@ class SearchViewBody extends StatelessWidget {
           ),
           verticalSpacing(16),
           const Text(
-            "Search Result",
+            'Search Result',
             style: Styles.textStyle18,
           ),
           verticalSpacing(16),
 
-          ///TODO: Add Search Result List View
+          // TODO(username): add similar books: Add Search Result List View
           /*  const Expanded(
             child: SearchResultListView(),
           ),*/

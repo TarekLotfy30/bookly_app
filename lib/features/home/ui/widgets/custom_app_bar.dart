@@ -1,8 +1,9 @@
-import 'package:bookly/core/routes/routes.dart';
-import 'package:bookly/core/utils/images/images.dart';
-import 'package:bookly/core/utils/navigation/extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+
+import '../../../../core/routes/routes.dart';
+import '../../../../core/utils/images/images.dart';
+import '../../../../core/utils/navigation/extensions.dart';
 
 class CustomAppBar extends StatelessWidget {
   const CustomAppBar({super.key});
@@ -22,7 +23,7 @@ class CustomAppBar extends StatelessWidget {
             height: 20,
           ),
           IconButton(
-            onPressed: () {
+            onPressed: () async {
               context.navigateToNamedRoute(Routes.searchScreen);
             },
             icon: const Icon(

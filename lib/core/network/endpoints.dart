@@ -8,8 +8,8 @@ class EndPoints {
   static const String featuredBooks = '''
 volumes?Filtering=free-ebooks&q=subject:Programming''';
 
-  static const String newestBooks = """
-volumes?Filtering=free-ebooks&Sorting=newest &q=computer science""";
+  static const String newestBooks = '''
+volumes?Filtering=free-ebooks&Sorting=newest &q=computer science''';
 }
 
 //https://newsapi.org/

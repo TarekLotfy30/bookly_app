@@ -1,5 +1,6 @@
-import 'package:bookly/core/utils/styles/font_weight_helper.dart';
 import 'package:flutter/material.dart';
+
+import 'font_weight_helper.dart';
 
 //abstract 3lshan msh hanshe2 menha object
 abstract class Styles {

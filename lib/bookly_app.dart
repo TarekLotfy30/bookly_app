@@ -1,12 +1,15 @@
-import 'package:bookly/core/di/service_locator.dart';
-import 'package:bookly/core/routes/app_router.dart';
-import 'package:bookly/core/routes/routes.dart';
-import 'package:bookly/core/utils/themes/app_theme.dart';
-import 'package:bookly/features/home/data/repo/home_repo_impl.dart';
-import 'package:bookly/features/home/logic/featured_books_cubit/featured_books_cubit.dart';
-import 'package:bookly/features/home/logic/newest_books_cubit/newest_books_cubit.dart';
+// ignore_for_file: discarded_futures
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
+import 'core/di/service_locator.dart';
+import 'core/routes/app_router.dart';
+import 'core/routes/routes.dart';
+import 'core/utils/themes/app_theme.dart';
+import 'features/home/data/repo/home_repo_impl.dart';
+import 'features/home/logic/featured_books_cubit/featured_books_cubit.dart';
+import 'features/home/logic/newest_books_cubit/newest_books_cubit.dart';
 
 class BooklyApp extends StatelessWidget {
   const BooklyApp({super.key, required this.appRouter});
