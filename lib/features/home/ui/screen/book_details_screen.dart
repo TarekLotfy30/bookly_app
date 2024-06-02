@@ -18,7 +18,7 @@ class BookDetailsScreen extends StatelessWidget {
       create: (context) => SimilarBooksCubit(getIt.get<HomeRepoImpl>())
         // ignore: discarded_futures
         ..getSimilarBooks(
-          category: book.volumeInfo?.categories?[0] ?? 'Unknown',
+          category: book.volumeInfo!.categories![0],
         ),
       child: Scaffold(
         body: SafeArea(

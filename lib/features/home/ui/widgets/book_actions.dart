@@ -1,13 +1,18 @@
 import 'package:flutter/material.dart';
 
+import '../../../../core/utils/functions/launch_url.dart';
 import '../../../../core/utils/styles/font_weight_helper.dart';
 import '../../../../core/utils/styles/text_style.dart';
 import '../../../../core/widgets/app_button_widget.dart';
+import '../../data/models/book_model/book_model.dart';
 
 class BookActions extends StatelessWidget {
   const BookActions({
     super.key,
+    required this.book,
   });
+
+  final BookModel book;
 
   @override
   Widget build(BuildContext context) {
@@ -32,8 +37,10 @@ class BookActions extends StatelessWidget {
             elevation: 10,
             shadowColor: Colors.pink.shade200,
             child: CustomElevatedButton(
-              onPressed: () {},
-              buttonText: 'Free preview',
+              onPressed: () async {
+                launchCustomUrl(context, book.volumeInfo?.previewLink);
+              },
+              buttonText: getText(book),
               textStyle: Styles.textStyle18.copyWith(
                 fontWeight: FontWeightHelper.regular,
                 color: Colors.white,
@@ -46,5 +53,13 @@ class BookActions extends StatelessWidget {
         ),
       ],
     );
+  }
+
+  String getText(BookModel book) {
+    if (book.volumeInfo!.previewLink == null) {
+      return 'Not Avaliable';
+    } else {
+      return 'Preview';
+    }
   }
 }

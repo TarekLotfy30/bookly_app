@@ -31,9 +31,9 @@ class BookDetailsBody extends StatelessWidget {
                   child: verticalSpacing(50),
                 ),
                 const SimilarBooksSection(),
-                verticalSpacing(20),
+                verticalSpacing(30),
                 Text(
-                  '© 2022, Bookly'.toUpperCase(),
+                  '© 2024, Bookly'.toUpperCase(),
                   style: Styles.textStyle14,
                 ),
                 verticalSpacing(30),
