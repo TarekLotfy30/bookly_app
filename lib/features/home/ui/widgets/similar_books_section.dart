@@ -1,8 +1,8 @@
-/*
-import 'package:bookly/core/utils/functions/functions.dart';
-import 'package:bookly/core/utils/styles/text_style.dart';
-import 'package:bookly/features/home/ui/widgets/similar_books_list_view.dart';
 import 'package:flutter/material.dart';
+
+import '../../../../core/utils/functions/functions.dart';
+import '../../../../core/utils/styles/text_style.dart';
+import 'similar_books_list_view.dart';
 
 class SimilarBooksSection extends StatelessWidget {
   const SimilarBooksSection({
@@ -15,7 +15,7 @@ class SimilarBooksSection extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         const Text(
-          "You can also like",
+          'You can also like',
           style: Styles.textStyle14,
         ),
         verticalSpacing(40),
@@ -24,4 +24,3 @@ class SimilarBooksSection extends StatelessWidget {
     );
   }
 }
-*/

@@ -35,9 +35,3 @@ class AppRouter {
     }
   }
 }
-
-/*
-onPressed: () {
-context.pushNamed(Routes.loginScreen);
-},
-*/

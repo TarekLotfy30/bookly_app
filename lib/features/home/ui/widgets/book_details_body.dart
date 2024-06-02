@@ -5,6 +5,7 @@ import '../../../../core/utils/styles/text_style.dart';
 import '../../data/models/book_model/book_model.dart';
 import 'book_details_section.dart';
 import 'custom_book_details_app_bar.dart';
+import 'similar_books_section.dart';
 
 class BookDetailsBody extends StatelessWidget {
   const BookDetailsBody({super.key, required this.book});
@@ -29,9 +30,7 @@ class BookDetailsBody extends StatelessWidget {
                 Expanded(
                   child: verticalSpacing(50),
                 ),
-
-                // TODO(username): add similar books
-                //const SimilarBooksSection(),
+                const SimilarBooksSection(),
                 verticalSpacing(20),
                 Text(
                   '© 2022, Bookly'.toUpperCase(),
