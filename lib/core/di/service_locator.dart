@@ -6,24 +6,13 @@ import '../network/api_service.dart';
 
 final getIt = GetIt.instance;
 
-void setupServiceLocator() {
+Future<void> setupServiceLocator() async {
+  // Dio & ApiService
   getIt.registerSingleton<ApiService>(
-    ApiService(
-      Dio(
-        BaseOptions(
-          baseUrl: 'https://www.googleapis.com/books/v1/',
-          receiveDataWhenStatusError: true,
-          headers: {
-            'Content-Type': 'application/json',
-            'Accept': 'application/json',
-          },
-          responseType: ResponseType.json,
-          validateStatus: (status) => status! < 500,
-        ),
-      ),
-    ),
+    ApiService(Dio()),
   );
 
+  // Home
   getIt.registerSingleton<HomeRepoImpl>(
     HomeRepoImpl(apiService: getIt.get<ApiService>()),
   );

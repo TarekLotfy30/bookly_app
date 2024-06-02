@@ -15,9 +15,9 @@ class HomeRepoImpl implements HomeRepo {
   @override
   Future<Either<Failure, List<BookModel>>> fetchFeaturedBooks() async {
     try {
-      var data = await apiService.getData(endPoint: EndPoints.featuredBooks);
-      List<BookModel> books = [];
-      for (var item in data['items']) {
+      final data = await apiService.getData(endPoint: EndPoints.featuredBooks);
+      final List<BookModel> books = [];
+      for (final item in data['items']) {
         try {
           books.add(BookModel.fromJson(item));
         } on Exception catch (_) {
@@ -36,9 +36,28 @@ class HomeRepoImpl implements HomeRepo {
   @override
   Future<Either<Failure, List<BookModel>>> fetchNewestBooks() async {
     try {
-      var data = await apiService.getData(endPoint: EndPoints.newestBooks);
-      List<BookModel> books = [];
-      for (var item in data['items']) {
+      final data = await apiService.getData(endPoint: EndPoints.newestBooks);
+      final List<BookModel> books = [];
+      for (final item in data['items']) {
+        books.add(BookModel.fromJson(item));
+      }
+      return right(books);
+    } on Exception catch (e) {
+      if (e is DioException) {
+        return left(ServerFailure.fromDioError(e));
+      }
+      return left(ServerFailure(e.toString()));
+    }
+  }
+
+  @override
+  Future<Either<Failure, List<BookModel>>> fetchSimilarBooks({
+    required String category,
+  }) async {
+    try {
+      final data = await apiService.getData(endPoint: EndPoints.similarBooks);
+      final List<BookModel> books = [];
+      for (final item in data['items']) {
         books.add(BookModel.fromJson(item));
       }
       return right(books);
