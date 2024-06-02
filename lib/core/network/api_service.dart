@@ -16,7 +16,7 @@ class ApiService {
       responseType: ResponseType.json,
       validateStatus: (status) => status! < 500,
     );
-    // addDioInterceptor();
+    addDioInterceptor();
   }
 
   final Dio _dio;

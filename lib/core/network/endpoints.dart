@@ -14,7 +14,3 @@ volumes?Filtering=free-ebooks&Sorting=newest &q=computer science''';
   static const String similarBooks = 'volumes?Filtering=free-ebooks&Sorting=r'
       'elevance &q=subject:Programming';
 }
-
-//https://newsapi.org/
-// v2/top-headlines?              EL PATH HAYB2A MN GHER "?"
-// country=us&category=business&apiKey=6daca0ce077440d7b4ffdfda4742e424

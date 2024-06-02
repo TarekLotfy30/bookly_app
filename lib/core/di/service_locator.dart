@@ -17,8 +17,3 @@ Future<void> setupServiceLocator() async {
     HomeRepoImpl(apiService: getIt.get<ApiService>()),
   );
 }
-
-/*
-in main () {
-  setupServiceLocator();
-}*/
