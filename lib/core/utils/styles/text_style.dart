@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 import 'font_weight_helper.dart';
 
-//abstract 3lshan msh hanshe2 menha object
 abstract class Styles {
   static const textStyle30 = TextStyle(
     fontSize: 30,
@@ -30,5 +29,3 @@ abstract class Styles {
     fontWeight: FontWeightHelper.regular,
   );
 }
-
-const TextStyle textStyle = TextStyle();

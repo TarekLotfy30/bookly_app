@@ -22,9 +22,3 @@ extension Navigation on BuildContext {
     Navigator.of(this).pop();
   }
 }
-
-/*
-// lama btegy te-navigate mn screen ly el tanya bet2olo navigator .pop .,,,,
-// in calling  ha3ml el call 3an tareq el context
-// context.pop(),,
-*/
