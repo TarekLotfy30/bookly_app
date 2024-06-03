@@ -1,10 +1,10 @@
-# bookly
+# Bookly App
 
-A new Flutter project.
+Bookly is a sophisticated reading application.
 
-## Getting Started
+## Overview :
 
-This project is a starting point for a Flutter application.
+Bookly leverages MVVM architecture with BLoC (Business Logic Component) for efficient state management, ensuring a smooth and responsive user experience. With Bookly, users can seamlessly explore and enjoy a vast library of books tailored to their interests.
 
 A few resources to get you started if this is your first Flutter project:
 
