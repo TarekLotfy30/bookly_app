@@ -7,7 +7,7 @@ import '../../features/home/logic/similar_books/similar_books_cubit.dart';
 import '../../features/home/ui/screen/book_details_screen.dart';
 import '../../features/home/ui/screen/home_screen.dart';
 import '../../features/search/ui/screen/search_screen.dart';
-import '../../features/splash/ui/screen/splash_view_screen.dart';
+import '../../features/splash/presentation/screen/splash_view_screen.dart';
 import '../di/service_locator.dart';
 import 'routes.dart';
 
