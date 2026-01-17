@@ -1,24 +1,10 @@
 part of '../screen/splash_view_screen.dart';
 
-class _SplashViewBody extends StatefulWidget {
-  const _SplashViewBody();
+class SplashViewBody extends StatelessWidget {
+  const SplashViewBody({super.key});
 
-  @override
-  State<_SplashViewBody> createState() => _SplashViewBodyState();
-}
-
-class _SplashViewBodyState extends State<_SplashViewBody> {
-  @override
-  void initState() {
-    super.initState();
-    navigateToHomeScreen();
-  }
-
-  void navigateToHomeScreen() {
-    Future.delayed(
-      kTranstionDuration,
-      () async => context.replaceWithNamedRoute(Routes.homeScreen),
-    );
+  Future<void> navigateToHomeScreen(BuildContext context) async {
+    await context.replaceWithNamedRoute(Routes.homeScreen);
   }
 
   @override
@@ -27,15 +13,26 @@ class _SplashViewBodyState extends State<_SplashViewBody> {
       crossAxisAlignment: CrossAxisAlignment.stretch,
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Image.asset(
-          AppImages.booklyLogo,
-        ),
-        const Text(
-          'SEARCH BOOKS FOR FREE!!',
-          style: TextStyle(
-            fontSize: 20,
+        Image.asset(AppImages.booklyLogo, height: 150),
+        DefaultTextStyle(
+          style: Styles.textStyle20,
+          child: AnimatedTextKit(
+            onFinished: () => {navigateToHomeScreen(context)},
+            isRepeatingAnimation: false,
+            repeatForever: false,
+            totalRepeatCount: 0,
+            animatedTexts: [
+              TypewriterAnimatedText(
+                'SEARCH BOOKS FOR FREE!!',
+                curve: Curves.easeInCubic,
+                textAlign: TextAlign.center,
+                speed: const Duration(milliseconds: 150),
+                textStyle: Styles.textStyle20.copyWith(
+                  fontWeight: FontWeightHelper.bold,
+                ),
+              ),
+            ],
           ),
-          textAlign: TextAlign.center,
         ),
       ],
     );
