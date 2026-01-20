@@ -4,7 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../core/utils/functions/functions.dart';
 import '../../../../core/widgets/custom_error_widget.dart';
 import '../../../../core/widgets/custom_loading_indicator.dart';
-import '../../logic/similar_books/similar_books_cubit.dart';
+import '../controllers/similar_books/similar_books_cubit.dart';
 import 'custom_list_view_item.dart';
 
 class SimilarBooksListView extends StatelessWidget {

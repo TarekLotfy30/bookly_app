@@ -7,7 +7,7 @@ import '../../../../core/utils/styles/font_weight_helper.dart';
 import '../../../../core/utils/styles/text_style.dart';
 import '../../../../core/widgets/custom_error_widget.dart';
 import '../../../../core/widgets/custom_loading_indicator.dart';
-import '../../logic/newest_books_cubit/newest_books_cubit.dart';
+import '../controllers/newest_books_cubit/newest_books_cubit.dart';
 import '../widgets/best_seller_list_view_item.dart';
 import '../widgets/custom_app_bar.dart';
 import '../widgets/featured_books_list_view.dart';

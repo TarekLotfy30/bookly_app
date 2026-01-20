@@ -1,9 +1,9 @@
 import 'package:go_router/go_router.dart';
 
 import '../../features/home/data/models/book_model/book_model.dart';
-import '../../features/home/ui/screen/book_details_screen.dart';
-import '../../features/home/ui/screen/home_screen.dart';
-import '../../features/search/ui/screen/search_screen.dart';
+import '../../features/home/presentation/views/book_details_view.dart';
+import '../../features/home/presentation/views/home_view.dart';
+import '../../features/search/presentation/view/search_view.dart';
 import '../../features/splash/presentation/view/splash_view_screen.dart';
 import 'routes.dart';
 
@@ -29,7 +29,7 @@ class AppRouter {
         path: Routes.bookDetailsRoute,
         name: Routes.bookDetailsRoute,
         builder: (context, state) =>
-            BookDetailsScreen(book: state.extra as BookModel),
+            BookDetailsView(book: state.extra as BookModel),
       ),
       GoRoute(
         path: Routes.searchRoute,

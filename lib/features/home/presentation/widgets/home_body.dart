@@ -1,4 +1,4 @@
-part of '../screen/home_screen.dart';
+part of '../views/home_view.dart';
 
 class _HomeBody extends StatelessWidget {
   const _HomeBody();
