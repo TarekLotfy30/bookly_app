@@ -14,13 +14,11 @@ import '../widgets/featured_books_list_view.dart';
 
 part '../widgets/home_body.dart';
 
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
+class HomeView extends StatelessWidget {
+  const HomeView({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: _HomeBody(),
-    );
+    return const Scaffold(body: _HomeBody());
   }
 }

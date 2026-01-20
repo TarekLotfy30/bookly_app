@@ -1,8 +1,8 @@
 class Routes {
   Routes._();
 
-  static const String splashScreen = '/splashScreen';
-  static const String homeScreen = '/homeScreen';
-  static const String bookDetailsScreen = '/bookDetailsScreen';
-  static const String searchScreen = '/searchScreen';
+  static const String splashRoute = '/splash';
+  static const String homeRoute = '/home';
+  static const String bookDetailsRoute = '/bookDetails';
+  static const String searchRoute = '/search';
 }

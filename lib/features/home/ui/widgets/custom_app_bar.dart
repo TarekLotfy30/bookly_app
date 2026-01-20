@@ -22,7 +22,7 @@ class CustomAppBar extends StatelessWidget {
           Image.asset(AppImages.booklyLogo, height: 20),
           IconButton(
             onPressed: () async {
-              context.pushNamed(Routes.searchScreen);
+              context.pushNamed(Routes.searchRoute);
             },
             icon: const Icon(FontAwesomeIcons.magnifyingGlass, size: 24),
           ),

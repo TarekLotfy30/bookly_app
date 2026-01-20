@@ -1,10 +1,10 @@
-part of '../screen/splash_view_screen.dart';
+part of '../view/splash_view_screen.dart';
 
 class SplashViewBody extends StatelessWidget {
   const SplashViewBody({super.key});
 
   Future<void> navigateToHomeScreen(BuildContext context) async {
-    context.goNamed(Routes.homeScreen);
+    context.goNamed(Routes.homeRoute);
   }
 
   @override

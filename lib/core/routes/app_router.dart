@@ -4,7 +4,7 @@ import '../../features/home/data/models/book_model/book_model.dart';
 import '../../features/home/ui/screen/book_details_screen.dart';
 import '../../features/home/ui/screen/home_screen.dart';
 import '../../features/search/ui/screen/search_screen.dart';
-import '../../features/splash/presentation/screen/splash_view_screen.dart';
+import '../../features/splash/presentation/view/splash_view_screen.dart';
 import 'routes.dart';
 
 class AppRouter {
@@ -12,29 +12,29 @@ class AppRouter {
 
   // GoRouter configuration
   static final router = GoRouter(
-    initialLocation: Routes.splashScreen,
+    initialLocation: Routes.splashRoute,
     debugLogDiagnostics: true,
     routes: [
       GoRoute(
-        path: Routes.splashScreen,
-        name: Routes.splashScreen,
-        builder: (context, state) => const SplashViewScreen(),
+        path: Routes.splashRoute,
+        name: Routes.splashRoute,
+        builder: (context, state) => const SplashView(),
       ),
       GoRoute(
-        path: Routes.homeScreen,
-        name: Routes.homeScreen,
-        builder: (context, state) => const HomeScreen(),
+        path: Routes.homeRoute,
+        name: Routes.homeRoute,
+        builder: (context, state) => const HomeView(),
       ),
       GoRoute(
-        path: Routes.bookDetailsScreen,
-        name: Routes.bookDetailsScreen,
+        path: Routes.bookDetailsRoute,
+        name: Routes.bookDetailsRoute,
         builder: (context, state) =>
             BookDetailsScreen(book: state.extra as BookModel),
       ),
       GoRoute(
-        path: Routes.searchScreen,
-        name: Routes.searchScreen,
-        builder: (context, state) => const SearchScreen(),
+        path: Routes.searchRoute,
+        name: Routes.searchRoute,
+        builder: (context, state) => const SearchView(),
       ),
     ],
   );
