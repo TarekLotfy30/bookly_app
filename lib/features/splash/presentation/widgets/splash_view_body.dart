@@ -4,7 +4,7 @@ class SplashViewBody extends StatelessWidget {
   const SplashViewBody({super.key});
 
   Future<void> navigateToHomeScreen(BuildContext context) async {
-    await context.replaceWithNamedRoute(Routes.homeScreen);
+    context.goNamed(Routes.homeScreen);
   }
 
   @override
@@ -17,7 +17,7 @@ class SplashViewBody extends StatelessWidget {
         DefaultTextStyle(
           style: Styles.textStyle20,
           child: AnimatedTextKit(
-            onFinished: () => {navigateToHomeScreen(context)},
+            onFinished: () => navigateToHomeScreen(context),
             isRepeatingAnimation: false,
             repeatForever: false,
             totalRepeatCount: 0,

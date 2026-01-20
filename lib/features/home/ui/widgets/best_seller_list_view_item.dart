@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../../constants.dart';
 import '../../../../core/routes/routes.dart';
 import '../../../../core/utils/functions/functions.dart';
-import '../../../../core/utils/navigation/extensions.dart';
 import '../../../../core/utils/styles/text_style.dart';
 import '../../data/models/book_model/book_model.dart';
 import 'book_image.dart';
@@ -18,10 +18,7 @@ class BestSellerListViewItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () async {
-        context.navigateToNamedRoute(
-          Routes.bookDetailsScreen,
-          arguments: book,
-        );
+        context.pushNamed(Routes.bookDetailsScreen, extra: book);
       },
       borderRadius: BorderRadius.circular(10),
       splashColor: Colors.transparent,
@@ -46,9 +43,7 @@ class BestSellerListViewItem extends StatelessWidget {
                       book.volumeInfo?.title ?? '',
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
-                      style: Styles.textStyle20.copyWith(
-                        fontFamily: kHanuman,
-                      ),
+                      style: Styles.textStyle20.copyWith(fontFamily: kHanuman),
                     ),
                     Opacity(
                       opacity: 0.6,
@@ -60,10 +55,7 @@ class BestSellerListViewItem extends StatelessWidget {
                     const Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text(
-                          'Free',
-                          style: Styles.textStyle16,
-                        ),
+                        Text('Free', style: Styles.textStyle16),
                         BookRating(),
                       ],
                     ),

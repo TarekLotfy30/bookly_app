@@ -14,9 +14,9 @@ extension Navigation on BuildContext {
     String routeName, {
     Object? arguments,
     required RoutePredicate predicate,
-  }) =>
-      Navigator.of(this)
-          .pushNamedAndRemoveUntil(routeName, predicate, arguments: arguments);
+  }) => Navigator.of(
+    this,
+  ).pushNamedAndRemoveUntil(routeName, predicate, arguments: arguments);
 
   void goBack() {
     Navigator.of(this).pop();

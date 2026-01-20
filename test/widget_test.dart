@@ -6,7 +6,7 @@
 // tree, read text, and verify that the values of widget properties are correct.
 
 import 'package:bookly/bookly_app.dart';
-import 'package:bookly/core/routes/app_router.dart';
+// import 'package:bookly/core/routes/app_router.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
@@ -16,7 +16,7 @@ void main() {
     // Build our app and trigger a frame.
     await tester.pumpWidget(
       BooklyApp(
-        appRouter: AppRouter(),
+        // appRouter: AppRouter(),
       ),
     );
 
