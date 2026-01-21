@@ -1,7 +1,7 @@
-import '../../../domain/entities/book_entity.dart';
+import '../../models/book_response_model/item.dart';
 
 abstract class IHomeRemoteDataSource {
-  Future<List<BookEntity>> fetchFeaturedBooks();
-  Future<List<BookEntity>> fetchNewestBooks();
-  Future<List<BookEntity>> fetchSimilarBooks({required String category});
+  Future<List<Item>> fetchFeaturedBooks();
+  Future<List<Item>> fetchNewestBooks();
+  Future<List<Item>> fetchSimilarBooks({required String category});
 }

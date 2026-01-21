@@ -1,9 +1,10 @@
 import 'package:dio/dio.dart';
 
+import '../../../../../core/errors/failure.dart';
 import '../../../../../core/network/api_service.dart';
 import '../../../../../core/network/endpoints.dart';
-import '../../../domain/entities/book_entity.dart';
 import '../../models/book_response_model/book_response_model.dart';
+import '../../models/book_response_model/item.dart';
 import 'i_home_remote_data_source.dart';
 
 class HomeRemoteDataSourceImpl implements IHomeRemoteDataSource {
@@ -13,7 +14,7 @@ class HomeRemoteDataSourceImpl implements IHomeRemoteDataSource {
   final ApiService _apiService;
 
   @override
-  Future<List<BookEntity>> fetchFeaturedBooks() async {
+  Future<List<Item>> fetchFeaturedBooks() async {
     final responseData = await _apiService.getData(
       endPoint: EndPoints.volume,
       queryParams: {'Filtering': 'free-ebooks', 'q': 'subject:Programming'},
@@ -23,7 +24,7 @@ class HomeRemoteDataSourceImpl implements IHomeRemoteDataSource {
   }
 
   @override
-  Future<List<BookEntity>> fetchNewestBooks() async {
+  Future<List<Item>> fetchNewestBooks() async {
     final responseData = await _apiService.getData(
       endPoint: EndPoints.volume,
       queryParams: {
@@ -37,7 +38,7 @@ class HomeRemoteDataSourceImpl implements IHomeRemoteDataSource {
   }
 
   @override
-  Future<List<BookEntity>> fetchSimilarBooks({required String category}) async {
+  Future<List<Item>> fetchSimilarBooks({required String category}) async {
     final data = await _apiService.getData(
       endPoint: EndPoints.volume,
       queryParams: {
@@ -49,12 +50,10 @@ class HomeRemoteDataSourceImpl implements IHomeRemoteDataSource {
     return checkAndParsing(data);
   }
 
-  List<BookEntity> checkAndParsing(
-    Response<Map<String, dynamic>> responseData,
-  ) {
+  List<Item> checkAndParsing(Response<Map<String, dynamic>> responseData) {
     if (responseData.statusCode == 200) {
       if (responseData.data?['items'] == null) {
-        throw Exception('No data found');
+        throw ServerFailure('No data found');
       }
 
       final BookResponseModel bookModel = BookResponseModel.fromJson(
