@@ -4,10 +4,7 @@ import 'package:flutter/material.dart';
 import '../../../../core/widgets/custom_loading_indicator.dart';
 
 class CustomBookDetailsImage extends StatelessWidget {
-  const CustomBookDetailsImage({
-    super.key,
-    required this.image,
-  });
+  const CustomBookDetailsImage({super.key, required this.image});
 
   final String image;
 

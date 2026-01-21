@@ -12,14 +12,16 @@ class PanelizationSummary extends Equatable {
       containsImageBubbles: json['containsImageBubbles'] as bool?,
     );
   }
-
   final bool? containsEpubBubbles;
   final bool? containsImageBubbles;
 
   Map<String, dynamic> toJson() => {
-        'containsEpubBubbles': containsEpubBubbles,
-        'containsImageBubbles': containsImageBubbles,
-      };
+    'containsEpubBubbles': containsEpubBubbles,
+    'containsImageBubbles': containsImageBubbles,
+  };
+
+  @override
+  bool get stringify => true;
 
   @override
   List<Object?> get props => [containsEpubBubbles, containsImageBubbles];

@@ -19,23 +19,15 @@ class BookDetailsBody extends StatelessWidget {
         SliverFillRemaining(
           hasScrollBody: false,
           child: Padding(
-            padding: const EdgeInsets.symmetric(
-              horizontal: 30,
-              vertical: 30,
-            ),
+            padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 30),
             child: Column(
               children: [
                 const CustomBookDetailsAppBar(),
                 BookDetailsSection(book: book),
-                Expanded(
-                  child: verticalSpacing(50),
-                ),
+                Expanded(child: verticalSpacing(50)),
                 const SimilarBooksSection(),
                 verticalSpacing(30),
-                Text(
-                  '© 2024, Bookly'.toUpperCase(),
-                  style: Styles.textStyle14,
-                ),
+                Text('© 2024, Bookly'.toUpperCase(), style: Styles.textStyle14),
                 verticalSpacing(30),
               ],
             ),

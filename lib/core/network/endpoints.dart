@@ -11,6 +11,7 @@ volumes?Filtering=free-ebooks&q=subject:Programming''';
   static const String newestBooks = '''
 volumes?Filtering=free-ebooks&Sorting=newest &q=computer science''';
 
-  static const String similarBooks = 'volumes?Filtering=free-ebooks&Sorting=r'
+  static const String similarBooks =
+      'volumes?Filtering=free-ebooks&Sorting=r'
       'elevance &q=subject:Programming';
 }

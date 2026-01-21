@@ -8,9 +8,7 @@ final getIt = GetIt.instance;
 
 Future<void> setupServiceLocator() async {
   // Dio & ApiService
-  getIt.registerSingleton<ApiService>(
-    ApiService(Dio()),
-  );
+  getIt.registerSingleton<ApiService>(ApiService(Dio()));
 
   // Home
   getIt.registerSingleton<HomeRepoImpl>(

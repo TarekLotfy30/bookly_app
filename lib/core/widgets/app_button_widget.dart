@@ -55,10 +55,7 @@ class CustomElevatedButton extends StatelessWidget {
         tapTargetSize: MaterialTapTargetSize.shrinkWrap,
         surfaceTintColor: Colors.transparent,
       ),
-      child: Text(
-        buttonText,
-        style: textStyle,
-      ),
+      child: Text(buttonText, style: textStyle),
     );
   }
 }

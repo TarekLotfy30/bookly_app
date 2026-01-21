@@ -4,9 +4,7 @@ import 'package:go_router/go_router.dart';
 // import '../../../../core/utils/navigation/extensions.dart';
 
 class CustomBookDetailsAppBar extends StatelessWidget {
-  const CustomBookDetailsAppBar({
-    super.key,
-  });
+  const CustomBookDetailsAppBar({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -21,9 +19,7 @@ class CustomBookDetailsAppBar extends StatelessWidget {
         ),
         IconButton(
           onPressed: () {},
-          icon: const Icon(
-            Icons.shopping_cart_outlined,
-          ),
+          icon: const Icon(Icons.shopping_cart_outlined),
         ),
       ],
     );

@@ -1,6 +1,10 @@
 {
   "cmake.configureOnOpen": true,
   "cSpell.words": [
-    "dartz"
+    "dartz",
+    "epub",
+    "Panelization",
+    "usecase",
+    "viewability"
   ]
 }

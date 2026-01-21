@@ -1,63 +1,31 @@
 import 'package:equatable/equatable.dart';
 
-import 'access_info.dart';
-import 'sale_info.dart';
-import 'volume_info.dart';
+import 'item.dart';
 
 class BookModel extends Equatable {
-  const BookModel({
-    this.kind,
-    this.id,
-    this.etag,
-    this.selfLink,
-    this.volumeInfo,
-    this.saleInfo,
-    this.accessInfo,
-  });
+  const BookModel({this.kind, this.totalItems, this.items});
 
   factory BookModel.fromJson(Map<String, dynamic> json) => BookModel(
-        kind: json['kind'] as String?,
-        id: json['id'] as String?,
-        etag: json['etag'] as String?,
-        selfLink: json['selfLink'] as String?,
-        volumeInfo: json['volumeInfo'] == null
-            ? null
-            : VolumeInfo.fromJson(json['volumeInfo'] as Map<String, dynamic>),
-        saleInfo: json['saleInfo'] == null
-            ? null
-            : SaleInfo.fromJson(json['saleInfo'] as Map<String, dynamic>),
-        accessInfo: json['accessInfo'] == null
-            ? null
-            : AccessInfo.fromJson(json['accessInfo'] as Map<String, dynamic>),
-      );
+    kind: json['kind'] as String?,
+    totalItems: json['totalItems'] as int?,
+    items: (json['items'] as List<dynamic>?)
+        ?.map((e) => Item.fromJson(e as Map<String, dynamic>))
+        .toList(),
+  );
+  
   final String? kind;
-  final String? id;
-  final String? etag;
-  final String? selfLink;
-  final VolumeInfo? volumeInfo;
-  final SaleInfo? saleInfo;
-  final AccessInfo? accessInfo;
+  final int? totalItems;
+  final List<Item>? items;
 
   Map<String, dynamic> toJson() => {
-        'kind': kind,
-        'id': id,
-        'etag': etag,
-        'selfLink': selfLink,
-        'volumeInfo': volumeInfo?.toJson(),
-        'saleInfo': saleInfo?.toJson(),
-        'accessInfo': accessInfo?.toJson(),
-      };
+    'kind': kind,
+    'totalItems': totalItems,
+    'items': items?.map((e) => e.toJson()).toList(),
+  };
 
   @override
-  List<Object?> get props {
-    return [
-      kind,
-      id,
-      etag,
-      selfLink,
-      volumeInfo,
-      saleInfo,
-      accessInfo,
-    ];
-  }
+  bool get stringify => true;
+
+  @override
+  List<Object?> get props => [kind, totalItems, items];
 }

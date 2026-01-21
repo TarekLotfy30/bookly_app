@@ -10,10 +10,7 @@ class SearchViewBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(
-        horizontal: 30,
-        vertical: 30,
-      ),
+      padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 30),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -23,15 +20,10 @@ class SearchViewBody extends StatelessWidget {
             },
             hintText: 'Search',
             onChanged: (value) {},
-            suffixIcon: const Icon(
-              Icons.search,
-            ),
+            suffixIcon: const Icon(Icons.search),
           ),
           verticalSpacing(16),
-          const Text(
-            'Search Result',
-            style: Styles.textStyle18,
-          ),
+          const Text('Search Result', style: Styles.textStyle18),
           verticalSpacing(16),
 
           // TODO(username): add similar books: Add Search Result List View

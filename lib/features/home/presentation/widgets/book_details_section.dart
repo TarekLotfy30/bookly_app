@@ -9,10 +9,7 @@ import 'book_rating.dart';
 import 'custom_book_details_image.dart';
 
 class BookDetailsSection extends StatelessWidget {
-  const BookDetailsSection({
-    super.key,
-    required this.book,
-  });
+  const BookDetailsSection({super.key, required this.book});
 
   final BookModel book;
 
@@ -50,9 +47,7 @@ class BookDetailsSection extends StatelessWidget {
           ),
         ),
         verticalSpacing(15),
-        const BookRating(
-          mainAxisAlignment: MainAxisAlignment.center,
-        ),
+        const BookRating(mainAxisAlignment: MainAxisAlignment.center),
         verticalSpacing(20),
         BookActions(book: book),
       ],

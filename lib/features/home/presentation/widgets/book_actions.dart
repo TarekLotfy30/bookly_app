@@ -7,10 +7,7 @@ import '../../../../core/widgets/app_button_widget.dart';
 import '../../data/models/book_model/book_model.dart';
 
 class BookActions extends StatelessWidget {
-  const BookActions({
-    super.key,
-    required this.book,
-  });
+  const BookActions({super.key, required this.book});
 
   final BookModel book;
 

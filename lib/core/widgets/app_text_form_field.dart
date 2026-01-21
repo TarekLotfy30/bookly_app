@@ -51,41 +51,31 @@ class AppTextFormField extends StatelessWidget {
       onChanged: onChanged,
       decoration: InputDecoration(
         isDense: true,
-        contentPadding: contentPadding ??
-            const EdgeInsets.symmetric(
-              horizontal: 20,
-              vertical: 18,
-            ),
-        enabledBorder: enabledBorder ??
+        contentPadding:
+            contentPadding ??
+            const EdgeInsets.symmetric(horizontal: 20, vertical: 18),
+        enabledBorder:
+            enabledBorder ??
             OutlineInputBorder(
-              borderSide: const BorderSide(
-                color: AppColors.gray,
-                width: 1.3,
-              ),
+              borderSide: const BorderSide(color: AppColors.gray, width: 1.3),
               borderRadius: BorderRadius.circular(16),
             ),
-        focusedBorder: focusedBorder ??
+        focusedBorder:
+            focusedBorder ??
             OutlineInputBorder(
-              borderSide: const BorderSide(
-                color: AppColors.blue,
-                width: 1.3,
-              ),
+              borderSide: const BorderSide(color: AppColors.blue, width: 1.3),
               borderRadius: BorderRadius.circular(16),
             ),
-        errorBorder: errorBorder ??
+        errorBorder:
+            errorBorder ??
             OutlineInputBorder(
-              borderSide: const BorderSide(
-                color: Colors.red,
-                width: 1.3,
-              ),
+              borderSide: const BorderSide(color: Colors.red, width: 1.3),
               borderRadius: BorderRadius.circular(16),
             ),
-        focusedErrorBorder: focusedErrorBorder ??
+        focusedErrorBorder:
+            focusedErrorBorder ??
             OutlineInputBorder(
-              borderSide: const BorderSide(
-                color: Colors.red,
-                width: 1.3,
-              ),
+              borderSide: const BorderSide(color: Colors.red, width: 1.3),
               borderRadius: BorderRadius.circular(16),
             ),
         hintStyle: Styles.textStyle14,

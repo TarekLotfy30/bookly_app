@@ -39,10 +39,7 @@ class ApiService {
     String? apiKey,
     Map<String, dynamic>? params,
   }) async {
-    final response = await _dio.get(
-      endPoint,
-      queryParameters: params,
-    );
+    final response = await _dio.get(endPoint, queryParameters: params);
     return response.data;
   }
 }
