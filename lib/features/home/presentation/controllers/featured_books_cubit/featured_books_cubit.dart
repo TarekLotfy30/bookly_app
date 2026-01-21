@@ -1,7 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 
-import '../../../data/models/book_model/book_model.dart';
+import '../../../data/models/book_response_model/book_response_model.dart';
 import '../../../data/repo/home_repo.dart';
 
 part 'featured_books_state.dart';

@@ -1,6 +1,9 @@
-import 'package:equatable/equatable.dart';
+// ignore_for_file: sort_constructors_first
+class SaleInfo {
+  final String? country;
+  final String? saleability;
+  final bool? isEbook;
 
-class SaleInfo extends Equatable {
   const SaleInfo({this.country, this.saleability, this.isEbook});
 
   factory SaleInfo.fromJson(Map<String, dynamic> json) => SaleInfo(
@@ -8,20 +11,10 @@ class SaleInfo extends Equatable {
     saleability: json['saleability'] as String?,
     isEbook: json['isEbook'] as bool?,
   );
-  
-  final String? country;
-  final String? saleability;
-  final bool? isEbook;
 
   Map<String, dynamic> toJson() => {
     'country': country,
     'saleability': saleability,
     'isEbook': isEbook,
   };
-
-  @override
-  bool get stringify => true;
-
-  @override
-  List<Object?> get props => [country, saleability, isEbook];
 }

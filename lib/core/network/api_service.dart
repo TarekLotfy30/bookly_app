@@ -34,12 +34,12 @@ class ApiService {
     );
   }
 
-  Future<Map<String, dynamic>> getData({
+  Future<Response<Map<String, dynamic>>> getData({
     required String endPoint,
     String? apiKey,
-    Map<String, dynamic>? params,
+    Map<String, dynamic>? queryParams,
   }) async {
-    final response = await _dio.get(endPoint, queryParameters: params);
+    final response = await _dio.get(endPoint, queryParameters: queryParams);
     return response.data;
   }
 }

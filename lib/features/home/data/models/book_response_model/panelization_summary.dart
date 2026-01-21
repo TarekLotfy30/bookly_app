@@ -1,6 +1,9 @@
-import 'package:equatable/equatable.dart';
+// ignore_for_file: sort_constructors_first
 
-class PanelizationSummary extends Equatable {
+class PanelizationSummary {
+  final bool? containsEpubBubbles;
+  final bool? containsImageBubbles;
+
   const PanelizationSummary({
     this.containsEpubBubbles,
     this.containsImageBubbles,
@@ -12,17 +15,9 @@ class PanelizationSummary extends Equatable {
       containsImageBubbles: json['containsImageBubbles'] as bool?,
     );
   }
-  final bool? containsEpubBubbles;
-  final bool? containsImageBubbles;
 
   Map<String, dynamic> toJson() => {
     'containsEpubBubbles': containsEpubBubbles,
     'containsImageBubbles': containsImageBubbles,
   };
-
-  @override
-  bool get stringify => true;
-
-  @override
-  List<Object?> get props => [containsEpubBubbles, containsImageBubbles];
 }

@@ -5,14 +5,14 @@ import '../../../../constants.dart';
 import '../../../../core/routes/routes.dart';
 import '../../../../core/utils/functions/functions.dart';
 import '../../../../core/utils/styles/text_style.dart';
-import '../../data/models/book_model/book_model.dart';
+import '../../data/models/book_response_model/book_response_model.dart';
 import 'book_image.dart';
 import 'book_rating.dart';
 
 class BestSellerListViewItem extends StatelessWidget {
   const BestSellerListViewItem({super.key, required this.book});
 
-  final BookModel book;
+  final BookResponseModel book;
 
   @override
   Widget build(BuildContext context) {

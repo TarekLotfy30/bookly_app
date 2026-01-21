@@ -4,12 +4,12 @@ import '../../../../core/utils/functions/launch_url.dart';
 import '../../../../core/utils/styles/font_weight_helper.dart';
 import '../../../../core/utils/styles/text_style.dart';
 import '../../../../core/widgets/app_button_widget.dart';
-import '../../data/models/book_model/book_model.dart';
+import '../../data/models/book_response_model/book_response_model.dart';
 
 class BookActions extends StatelessWidget {
   const BookActions({super.key, required this.book});
 
-  final BookModel book;
+  final BookResponseModel book;
 
   @override
   Widget build(BuildContext context) {
@@ -52,7 +52,7 @@ class BookActions extends StatelessWidget {
     );
   }
 
-  String getText(BookModel book) {
+  String getText(BookResponseModel book) {
     if (book.volumeInfo!.previewLink == null) {
       return 'Not Avaliable';
     } else {

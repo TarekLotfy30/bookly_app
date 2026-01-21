@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../../../../core/utils/functions/functions.dart';
 import '../../../../core/utils/styles/font_weight_helper.dart';
 import '../../../../core/utils/styles/text_style.dart';
-import '../../data/models/book_model/book_model.dart';
+import '../../data/models/book_response_model/book_response_model.dart';
 import 'book_actions.dart';
 import 'book_rating.dart';
 import 'custom_book_details_image.dart';
@@ -11,7 +11,7 @@ import 'custom_book_details_image.dart';
 class BookDetailsSection extends StatelessWidget {
   const BookDetailsSection({super.key, required this.book});
 
-  final BookModel book;
+  final BookResponseModel book;
 
   @override
   Widget build(BuildContext context) {

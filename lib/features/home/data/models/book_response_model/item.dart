@@ -1,11 +1,20 @@
-import 'package:equatable/equatable.dart';
+// ignore_for_file: sort_constructors_first
 
+import '../../../domain/entities/book_entity.dart';
 import 'access_info.dart';
 import 'sale_info.dart';
 import 'volume_info.dart';
 
-class Item extends Equatable {
-  const Item({
+class Item extends BookEntity {
+  final String? kind;
+  final String? id;
+  final String? etag;
+  final String? selfLink;
+  final VolumeInfo? volumeInfo;
+  final SaleInfo? saleInfo;
+  final AccessInfo? accessInfo;
+
+  Item({
     this.kind,
     this.id,
     this.etag,
@@ -13,7 +22,14 @@ class Item extends Equatable {
     this.volumeInfo,
     this.saleInfo,
     this.accessInfo,
-  });
+  }) : super(
+         bookId: id,
+         image: volumeInfo?.imageLinks?.thumbnail ?? '',
+         title: volumeInfo?.title ?? '',
+         authorName: volumeInfo?.authors?.first ?? '',
+         price: 0,
+         rating: 4.5,
+       );
 
   factory Item.fromJson(Map<String, dynamic> json) => Item(
     kind: json['kind'] as String?,
@@ -30,14 +46,6 @@ class Item extends Equatable {
         ? null
         : AccessInfo.fromJson(json['accessInfo'] as Map<String, dynamic>),
   );
-  
-  final String? kind;
-  final String? id;
-  final String? etag;
-  final String? selfLink;
-  final VolumeInfo? volumeInfo;
-  final SaleInfo? saleInfo;
-  final AccessInfo? accessInfo;
 
   Map<String, dynamic> toJson() => {
     'kind': kind,
@@ -50,10 +58,13 @@ class Item extends Equatable {
   };
 
   @override
-  bool get stringify => true;
-
-  @override
-  List<Object?> get props {
-    return [kind, id, etag, selfLink, volumeInfo, saleInfo, accessInfo];
-  }
+  List<Object?> get props => [
+    ...super.props,
+    kind,
+    etag,
+    selfLink,
+    volumeInfo,
+    saleInfo,
+    accessInfo,
+  ];
 }

@@ -1,9 +1,20 @@
-import 'package:equatable/equatable.dart';
+// ignore_for_file: sort_constructors_first
 
 import 'epub.dart';
 import 'pdf.dart';
 
-class AccessInfo extends Equatable {
+class AccessInfo {
+  final String? country;
+  final String? viewability;
+  final bool? embeddable;
+  final bool? publicDomain;
+  final String? textToSpeechPermission;
+  final Epub? epub;
+  final Pdf? pdf;
+  final String? webReaderLink;
+  final String? accessViewStatus;
+  final bool? quoteSharingAllowed;
+
   const AccessInfo({
     this.country,
     this.viewability,
@@ -33,16 +44,6 @@ class AccessInfo extends Equatable {
     accessViewStatus: json['accessViewStatus'] as String?,
     quoteSharingAllowed: json['quoteSharingAllowed'] as bool?,
   );
-  final String? country;
-  final String? viewability;
-  final bool? embeddable;
-  final bool? publicDomain;
-  final String? textToSpeechPermission;
-  final Epub? epub;
-  final Pdf? pdf;
-  final String? webReaderLink;
-  final String? accessViewStatus;
-  final bool? quoteSharingAllowed;
 
   Map<String, dynamic> toJson() => {
     'country': country,
@@ -56,23 +57,4 @@ class AccessInfo extends Equatable {
     'accessViewStatus': accessViewStatus,
     'quoteSharingAllowed': quoteSharingAllowed,
   };
-
-  @override
-  bool get stringify => true;
-
-  @override
-  List<Object?> get props {
-    return [
-      country,
-      viewability,
-      embeddable,
-      publicDomain,
-      textToSpeechPermission,
-      epub,
-      pdf,
-      webReaderLink,
-      accessViewStatus,
-      quoteSharingAllowed,
-    ];
-  }
 }

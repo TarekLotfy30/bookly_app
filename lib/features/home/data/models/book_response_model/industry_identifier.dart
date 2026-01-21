@@ -1,6 +1,9 @@
-import 'package:equatable/equatable.dart';
+// ignore_for_file: sort_constructors_first
 
-class IndustryIdentifier extends Equatable {
+class IndustryIdentifier {
+  final String? type;
+  final String? identifier;
+
   const IndustryIdentifier({this.type, this.identifier});
 
   factory IndustryIdentifier.fromJson(Map<String, dynamic> json) {
@@ -9,15 +12,6 @@ class IndustryIdentifier extends Equatable {
       identifier: json['identifier'] as String?,
     );
   }
-  
-  final String? type;
-  final String? identifier;
 
   Map<String, dynamic> toJson() => {'type': type, 'identifier': identifier};
-
-  @override
-  bool get stringify => true;
-
-  @override
-  List<Object?> get props => [type, identifier];
 }
