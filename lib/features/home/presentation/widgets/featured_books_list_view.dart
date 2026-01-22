@@ -31,11 +31,7 @@ class FeaturedBooksListView extends StatelessWidget {
               scrollDirection: Axis.horizontal,
             ),
             items: state.books
-                .map(
-                  (item) => CustomListViewItem(
-                    bookImage: item.volumeInfo?.imageLinks?.thumbnail ?? '',
-                  ),
-                )
+                .map((item) => CustomListViewItem(bookImage: item.image ?? ''))
                 .toList(),
           );
         } else if (state is FeaturedBooksFailure) {

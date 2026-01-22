@@ -20,5 +20,5 @@ class FeaturedBooksFailure extends FeaturedBooksState {
 class FeaturedBooksSuccess extends FeaturedBooksState {
   const FeaturedBooksSuccess(this.books);
 
-  final List<BookResponseModel> books;
+  final List<BookEntity> books;
 }

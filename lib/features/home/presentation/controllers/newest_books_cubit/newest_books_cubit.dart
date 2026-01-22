@@ -1,18 +1,20 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 
-import '../../../data/models/book_response_model/book_response_model.dart';
-import '../../../data/repo/home_repo.dart';
+import '../../../../../core/usecase/usecase.dart';
+import '../../../domain/entities/book_entity.dart';
+import '../../../domain/use_cases/fetch_newest_books_use_case.dart';
 
 part 'newest_books_state.dart';
 
 class NewestBooksCubit extends Cubit<NewestBooksState> {
-  NewestBooksCubit(this.homeRepo) : super(NewestBooksInitial());
-  final HomeRepo homeRepo;
+  NewestBooksCubit(this.fetchNewestBooksUseCase) : super(NewestBooksInitial());
+
+  final FetchNewestBooksUseCase fetchNewestBooksUseCase;
 
   Future<void> fetchNewestBooks() async {
     emit(NewestBooksLoading());
-    final result = await homeRepo.fetchNewestBooks();
+    final result = await fetchNewestBooksUseCase.call(NoParams());
     result.fold(
       (failure) => emit(NewestBooksFailure(failure.errMessage)),
       (books) => emit(NewestBooksSuccess(books)),

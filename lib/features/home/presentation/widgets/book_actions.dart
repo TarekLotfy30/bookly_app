@@ -4,12 +4,12 @@ import '../../../../core/utils/functions/launch_url.dart';
 import '../../../../core/utils/styles/font_weight_helper.dart';
 import '../../../../core/utils/styles/text_style.dart';
 import '../../../../core/widgets/app_button_widget.dart';
-import '../../data/models/book_response_model/book_response_model.dart';
+import '../../domain/entities/book_entity.dart';
 
 class BookActions extends StatelessWidget {
   const BookActions({super.key, required this.book});
 
-  final BookResponseModel book;
+  final BookEntity book;
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +35,7 @@ class BookActions extends StatelessWidget {
             shadowColor: Colors.pink.shade200,
             child: CustomElevatedButton(
               onPressed: () async {
-                launchCustomUrl(context, book.volumeInfo?.previewLink);
+                launchCustomUrl(context, book.previewLink);
               },
               buttonText: getText(book),
               textStyle: Styles.textStyle18.copyWith(
@@ -52,9 +52,9 @@ class BookActions extends StatelessWidget {
     );
   }
 
-  String getText(BookResponseModel book) {
-    if (book.volumeInfo!.previewLink == null) {
-      return 'Not Avaliable';
+  String getText(BookEntity book) {
+    if (book.previewLink == null) {
+      return 'Not Available';
     } else {
       return 'Preview';
     }

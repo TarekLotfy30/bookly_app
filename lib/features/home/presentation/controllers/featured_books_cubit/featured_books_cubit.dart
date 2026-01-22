@@ -1,18 +1,19 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 
-import '../../../data/models/book_response_model/book_response_model.dart';
-import '../../../data/repo/home_repo.dart';
+import '../../../../../core/usecase/usecase.dart';
+import '../../../domain/entities/book_entity.dart';
+import '../../../domain/use_cases/fetch_featured_books_use_case.dart';
 
 part 'featured_books_state.dart';
 
 class FeaturedBooksCubit extends Cubit<FeaturedBooksState> {
-  FeaturedBooksCubit(this.homeRepo) : super(FeaturedBooksInitial());
-  final HomeRepo homeRepo;
+  FeaturedBooksCubit(this.useCase) : super(FeaturedBooksInitial());
+  final FetchFeaturedBooksUseCase useCase;
 
   Future<void> fetchFeaturedBooks() async {
     emit(FeaturedBooksLoading());
-    final result = await homeRepo.fetchFeaturedBooks();
+    final result = await useCase.call(NoParams());
     result.fold(
       (failure) => emit(FeaturedBooksFailure(failure.errMessage)),
       (books) => emit(FeaturedBooksSuccess(books)),

@@ -6,7 +6,8 @@ import '../entities/book_entity.dart';
 import '../repo_interface/i_home_repo.dart';
 
 class FetchSimilarBooksUseCase implements UseCase<List<BookEntity>, String> {
-  FetchSimilarBooksUseCase(this._homeRepo);
+  FetchSimilarBooksUseCase({required IHomeRepo homeRepo})
+    : _homeRepo = homeRepo;
   final IHomeRepo _homeRepo;
 
   @override

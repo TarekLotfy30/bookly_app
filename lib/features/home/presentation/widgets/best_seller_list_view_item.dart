@@ -5,14 +5,14 @@ import '../../../../constants.dart';
 import '../../../../core/routes/routes.dart';
 import '../../../../core/utils/functions/functions.dart';
 import '../../../../core/utils/styles/text_style.dart';
-import '../../data/models/book_response_model/book_response_model.dart';
+import '../../domain/entities/book_entity.dart';
 import 'book_image.dart';
 import 'book_rating.dart';
 
 class BestSellerListViewItem extends StatelessWidget {
   const BestSellerListViewItem({super.key, required this.book});
 
-  final BookResponseModel book;
+  final BookEntity book;
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +30,7 @@ class BestSellerListViewItem extends StatelessWidget {
         child: Row(
           children: [
             //Book Picture
-            BookImage(image: book.volumeInfo?.imageLinks?.thumbnail ?? ''),
+            BookImage(image: book.image ?? ''),
             horizontalSpacing(30),
             Expanded(
               child: Padding(
@@ -40,7 +40,7 @@ class BestSellerListViewItem extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
                     Text(
-                      book.volumeInfo?.title ?? '',
+                      book.title ?? '',
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
                       style: Styles.textStyle20.copyWith(fontFamily: kHanuman),
@@ -48,7 +48,7 @@ class BestSellerListViewItem extends StatelessWidget {
                     Opacity(
                       opacity: 0.6,
                       child: Text(
-                        book.volumeInfo?.authors?.first ?? '',
+                        book.authorName ?? '',
                         style: Styles.textStyle14,
                       ),
                     ),
