@@ -10,7 +10,7 @@ Future<void> main() async {
   setupServiceLocator();
   Bloc.observer = MyBlocObserver();
   runApp(
-    BooklyApp(
+    const BooklyApp(
       // appRouter: AppRouter(),
     ),
   );

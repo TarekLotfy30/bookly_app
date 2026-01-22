@@ -34,12 +34,21 @@ class ApiService {
     );
   }
 
-  Future<Response<Map<String, dynamic>>> getData({
+  Future<Response<Map<String, dynamic>>> get({
     required String endPoint,
-    String? apiKey,
-    Map<String, dynamic>? queryParams,
+    required Map<String, dynamic>? params,
+    Map<String, dynamic>? body,
+    Map<String, dynamic>? headers,
   }) async {
-    final response = await _dio.get(endPoint, queryParameters: queryParams);
-    return response.data;
+    try {
+      final response = await _dio.get<Map<String, dynamic>>(
+        endPoint,
+        queryParameters: params,
+        data: body, // Body can be sent with GET requests in some APIs
+      );
+      return response;
+    } on Exception catch (_) {
+      rethrow;
+    }
   }
 }
