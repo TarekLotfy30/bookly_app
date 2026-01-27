@@ -22,7 +22,7 @@ Future<void> launchCustomUrl(BuildContext context, String? url) async {
     if (!launched && context.mounted) {
       customSnackBar(context, 'Cannot launch $url');
     }
-  } catch (e) {
+  } on Exception catch (_) {
     if (context.mounted) {
       customSnackBar(context, 'Error opening link');
     }

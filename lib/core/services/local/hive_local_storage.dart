@@ -5,7 +5,7 @@ import 'package:hive_flutter/hive_flutter.dart';
 /// Usage:
 /// 1. Initialize in main(): await HiveHelper.init();
 /// 2. Register adapters: HiveHelper.registerAdapter(YourModelAdapter());
-/// 3. Open boxes: await HiveHelper.openBox<YourModel>('boxName');
+// 3. Open boxes: await HiveHelper.openBox<YourModel>('boxName');
 /// 4. Use CRUD operations with the helper methods
 class HiveHelper {
   HiveHelper._();
