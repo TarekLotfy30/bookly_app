@@ -11,22 +11,24 @@ class CustomAppBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.symmetric(
-        horizontal: MediaQuery.of(context).size.width * 0.05,
-        vertical: MediaQuery.of(context).size.height * 0.032,
-      ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Image.asset(AppImages.booklyLogo, height: 20),
-          IconButton(
-            onPressed: () async {
-              context.pushNamed(Routes.searchRoute);
-            },
-            icon: const Icon(FontAwesomeIcons.magnifyingGlass, size: 24),
-          ),
-        ],
+    return SliverToBoxAdapter(
+      child: Padding(
+        padding: EdgeInsets.symmetric(
+          horizontal: MediaQuery.of(context).size.width * 0.05,
+          vertical: MediaQuery.of(context).size.height * 0.032,
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Image.asset(AppImages.booklyLogo, height: 20),
+            IconButton(
+              onPressed: () async {
+                context.pushNamed(Routes.searchRoute);
+              },
+              icon: const Icon(FontAwesomeIcons.magnifyingGlass, size: 24),
+            ),
+          ],
+        ),
       ),
     );
   }

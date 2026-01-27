@@ -1,32 +1,36 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../core/widgets/custom_loading_indicator.dart';
-
-class CustomListViewItem extends StatelessWidget {
-  const CustomListViewItem({super.key, required this.bookImage});
+class CustomBookItem extends StatelessWidget {
+  const CustomBookItem({super.key, required this.bookImage});
 
   final String bookImage;
 
   @override
   Widget build(BuildContext context) {
     return ClipRRect(
-      borderRadius: BorderRadius.circular(20),
+      borderRadius: BorderRadius.circular(16),
       child: AspectRatio(
         aspectRatio: 134 / 210,
         child: CachedNetworkImage(
           imageUrl: bookImage,
           fit: BoxFit.fill,
-          filterQuality: FilterQuality.high,
-          fadeInCurve: Curves.bounceIn,
-          fadeOutCurve: Curves.bounceOut,
-          fadeOutDuration: const Duration(milliseconds: 500),
+          filterQuality: FilterQuality.medium,
+          memCacheHeight: 600,
+          memCacheWidth: 400,
+          maxHeightDiskCache: 800,
+          maxWidthDiskCache: 600,
           fadeInDuration: const Duration(milliseconds: 500),
-          alignment: Alignment.topCenter,
-          maxHeightDiskCache: 200,
-          memCacheHeight: 200,
-          placeholder: (context, url) => const CustomLoadingIndicator(),
-          errorWidget: (context, url, error) => const Icon(Icons.error),
+          fadeInCurve: Curves.easeIn,
+          placeholder: (context, url) => Container(color: Colors.grey[200]),
+          placeholderFadeInDuration: const Duration(milliseconds: 500),
+          errorWidget: (context, url, error) =>
+              const Center(child: Icon(Icons.error_outline, color: Colors.red)),
+          imageBuilder: (context, imageProvider) => Container(
+            decoration: BoxDecoration(
+              image: DecorationImage(image: imageProvider, fit: BoxFit.fill),
+            ),
+          ),
         ),
       ),
     );

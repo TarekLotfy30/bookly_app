@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../utils/styles/text_style.dart';
 
 class CustomErrorWidget extends StatelessWidget {
-  const CustomErrorWidget({super.key, required this.errMessage});
+  const CustomErrorWidget(this.errMessage, {super.key});
 
   final String errMessage;
 

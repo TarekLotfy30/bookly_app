@@ -19,14 +19,14 @@ class SimilarBooksListView extends StatelessWidget {
             height: MediaQuery.of(context).size.height * .15,
             child: ListView.separated(
               itemBuilder: (context, index) =>
-                  CustomListViewItem(bookImage: state.books[index].image ?? ''),
+                  CustomBookItem(bookImage: state.books[index].image ?? ''),
               separatorBuilder: (context, index) => horizontalSpacing(20),
               itemCount: state.books.length,
               scrollDirection: Axis.horizontal,
             ),
           );
         } else if (state is SimilarBooksFailure) {
-          return CustomErrorWidget(errMessage: state.errorMessage);
+          return CustomErrorWidget(state.errorMessage);
         } else {
           return const CustomLoadingIndicator();
         }
