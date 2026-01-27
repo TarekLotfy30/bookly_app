@@ -35,7 +35,10 @@ class BookActions extends StatelessWidget {
             shadowColor: Colors.pink.shade200,
             child: CustomElevatedButton(
               onPressed: () async {
-                launchCustomUrl(context, book.previewLink);
+                launchCustomUrl(
+                  context,
+                  book.previewLink,
+                );
               },
               buttonText: getText(book),
               textStyle: Styles.textStyle18.copyWith(

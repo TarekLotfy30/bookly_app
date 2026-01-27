@@ -1,10 +1,13 @@
 import 'package:dio/dio.dart';
 
+import '../../../../../constants.dart';
 import '../../../../../core/errors/failure.dart';
+import '../../../../../core/services/local/hive_local_storage.dart';
 import '../../../../../core/services/network/api_service.dart';
 import '../../../../../core/services/network/endpoints.dart';
 import '../../../domain/entities/book_entity.dart';
 import '../../models/book_response_model/book_response_model.dart';
+import '../../models/book_response_model/item.dart';
 import 'i_home_remote_data_source.dart';
 
 class HomeRemoteDataSourceImpl implements IHomeRemoteDataSource {
@@ -63,11 +66,10 @@ class HomeRemoteDataSourceImpl implements IHomeRemoteDataSource {
       );
 
       // save to Hive
-
-      // await HiveHelper.addAll<Item>(
-      //   values: bookModel.items!,
-      //   boxName: bookHiveBox,
-      // );
+      await HiveHelper.addAll<Item>(
+        values: bookModel.items!,
+        boxName: bookHiveBox,
+      );
 
       // Items are already BookEntity (since Item extends BookEntity)
       return bookModel.items!;
