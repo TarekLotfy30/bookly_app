@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../../../constants.dart';
-import '../../../../core/routes/routes.dart';
-import '../../../../core/utils/functions/functions.dart';
-import '../../../../core/utils/styles/text_style.dart';
-import '../../domain/entities/book_entity.dart';
-import 'book_image.dart';
-import 'book_rating.dart';
+import '../../../../../../constants.dart';
+import '../../../../../../core/routes/routes.dart';
+import '../../../../../../core/utils/functions/functions.dart';
+import '../../../../../../core/utils/styles/text_style.dart';
+import '../../../../domain/entities/book_entity.dart';
+import 'newest_book_image.dart';
+import 'newest_book_rating.dart';
 
-class BestSellerListViewItem extends StatelessWidget {
-  const BestSellerListViewItem({super.key, required this.book});
+class NewestBooksItem extends StatelessWidget {
+  const NewestBooksItem({super.key, required this.book});
 
   final BookEntity book;
 
@@ -20,7 +20,7 @@ class BestSellerListViewItem extends StatelessWidget {
       onTap: () async {
         context.pushNamed(Routes.bookDetailsRoute, extra: book);
       },
-      borderRadius: BorderRadius.circular(10),
+      borderRadius: BorderRadius.circular(16),
       splashColor: Colors.transparent,
       highlightColor: Colors.transparent,
       hoverColor: Colors.transparent,
@@ -29,7 +29,7 @@ class BestSellerListViewItem extends StatelessWidget {
         height: 130,
         child: Row(
           children: [
-            //Book Picture
+            // Book Picture
             BookImage(image: book.image ?? ''),
             horizontalSpacing(30),
             Expanded(
@@ -56,7 +56,7 @@ class BestSellerListViewItem extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text('Free', style: Styles.textStyle16),
-                        BookRating(),
+                        NewestBookRating(),
                       ],
                     ),
                   ],

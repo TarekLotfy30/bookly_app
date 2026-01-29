@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-import '../../../../core/utils/functions/functions.dart';
-import '../../../../core/utils/styles/font_weight_helper.dart';
-import '../../../../core/utils/styles/text_style.dart';
+import '../../../../../../core/utils/functions/functions.dart';
+import '../../../../../../core/utils/styles/font_weight_helper.dart';
+import '../../../../../../core/utils/styles/text_style.dart';
 
-class BookRating extends StatelessWidget {
-  const BookRating({super.key, this.mainAxisAlignment});
+class NewestBookRating extends StatelessWidget {
+  const NewestBookRating({super.key, this.mainAxisAlignment});
 
   final MainAxisAlignment? mainAxisAlignment;
 

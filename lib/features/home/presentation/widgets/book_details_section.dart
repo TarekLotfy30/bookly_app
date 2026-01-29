@@ -5,7 +5,7 @@ import '../../../../core/utils/styles/font_weight_helper.dart';
 import '../../../../core/utils/styles/text_style.dart';
 import '../../domain/entities/book_entity.dart';
 import 'book_actions.dart';
-import 'book_rating.dart';
+import 'home_view/newest_books_section/newest_book_rating.dart';
 import 'custom_book_details_image.dart';
 
 class BookDetailsSection extends StatelessWidget {
@@ -45,7 +45,7 @@ class BookDetailsSection extends StatelessWidget {
           ),
         ),
         verticalSpacing(15),
-        const BookRating(mainAxisAlignment: MainAxisAlignment.center),
+        const NewestBookRating(mainAxisAlignment: MainAxisAlignment.center),
         verticalSpacing(20),
         BookActions(book: book),
       ],

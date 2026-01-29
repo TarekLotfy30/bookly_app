@@ -5,7 +5,7 @@ import '../../../../core/utils/functions/functions.dart';
 import '../../../../core/widgets/custom_error_widget.dart';
 import '../../../../core/widgets/custom_loading_indicator.dart';
 import '../controllers/similar_books/similar_books_cubit.dart';
-import 'custom_list_view_item.dart';
+import 'home_view/featured_books_section/custom_list_view_item.dart';
 
 class SimilarBooksListView extends StatelessWidget {
   const SimilarBooksListView({super.key});

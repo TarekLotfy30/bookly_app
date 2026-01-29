@@ -1,63 +1,25 @@
 import 'package:flutter/material.dart';
 
+import '../../../../../core/utils/functions/functions.dart';
 import '../custom_app_bar.dart';
 import 'featured_books_section/featured_books_list_view.dart';
+import 'newest_books_section/newest_books_section.dart';
+import 'newest_books_section/newest_books_title.dart';
 
 class HomeBody extends StatelessWidget {
   const HomeBody({super.key});
 
   @override
-  Widget build(BuildContext context) => const SafeArea(
+  Widget build(BuildContext context) => SafeArea(
     child: CustomScrollView(
-      physics: BouncingScrollPhysics(),
+      physics: const BouncingScrollPhysics(),
       slivers: [
-        CustomAppBar(),
-        FeaturedBooksSection(),
-        // SliverToBoxAdapter(
-        //   child: Column(
-        //     crossAxisAlignment: CrossAxisAlignment.start,
-        //     children: [
-        //       const CustomAppBar(),
-        //       const FeaturedBooksListView(),
-        //       verticalSpacing(30),
-        //       Padding(
-        //         padding: const EdgeInsets.symmetric(horizontal: AppPadding.p20),
-        //         child: Text(
-        //           'Best Seller',
-        //           style: Styles.textStyle18.copyWith(
-        //             fontWeight: FontWeightHelper.bold,
-        //           ),
-        //         ),
-        //       ),
-        //       verticalSpacing(20),
-        //     ],
-        //   ),
-        // ),
-        // BlocBuilder<NewestBooksCubit, NewestBooksState>(
-        //   builder: (context, state) {
-        //     if (state is NewestBooksSuccess) {
-        //       return SliverList(
-        //         delegate: SliverChildBuilderDelegate(
-        //           childCount: state.books.length,
-        //           (context, index) {
-        //             return Padding(
-        //               padding: const EdgeInsets.symmetric(
-        //                 vertical: AppPadding.p10,
-        //                 horizontal: AppPadding.p20,
-        //               ),
-        //               child: BestSellerListViewItem(book: state.books[index]),
-        //             );
-        //           },
-        //         ),
-        //       );
-        //     } else if (state is NewestBooksFailure) {
-        //       return SliverToBoxAdapter(
-        //         child: CustomErrorWidget(errMessage: state.errorMessage),
-        //       );
-        //     }
-        //     return const SliverToBoxAdapter(child: CustomLoadingIndicator());
-        //   },
-        // ),
+        const CustomAppBar(),
+        const FeaturedBooksSection(),
+        SliverToBoxAdapter(child: verticalSpacing(30)),
+        SliverToBoxAdapter(child: verticalSpacing(20)),
+        const NewestBooksTitle(),
+        const NewestBooksSection(),
       ],
     ),
   );

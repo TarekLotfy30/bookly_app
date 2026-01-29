@@ -1,5 +1,6 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+
+import '../../../../../../core/widgets/app_cached_network_image.dart';
 
 class BookImage extends StatelessWidget {
   const BookImage({super.key, required this.image});
@@ -14,12 +15,11 @@ class BookImage extends StatelessWidget {
         borderRadius: BorderRadius.circular(16),
         child: AspectRatio(
           aspectRatio: 2.5 / 4,
-          child: CachedNetworkImage(
+          child: AppCachedNetworkImage(
             imageUrl: image,
             fit: BoxFit.fill,
-            errorWidget: (context, url, error) => const Icon(Icons.error),
-            placeholder: (context, url) =>
-                const Center(child: CircularProgressIndicator()),
+            memCacheHeight: 600,
+            memCacheWidth: 375,
           ),
         ),
       ),

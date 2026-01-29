@@ -4,7 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../../../core/widgets/custom_error_widget.dart';
 import '../../../../../../core/widgets/custom_loading_indicator.dart';
 import '../../../controllers/featured_books_cubit/featured_books_cubit.dart';
-import '../../custom_list_view_item.dart';
+import 'custom_list_view_item.dart';
 import 'carousel_slider_for_featured_books.dart';
 
 class FeaturedBooksSection extends StatelessWidget {
