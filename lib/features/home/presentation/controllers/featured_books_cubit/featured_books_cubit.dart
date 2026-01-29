@@ -22,4 +22,8 @@ class FeaturedBooksCubit extends Cubit<FeaturedBooksState> {
       (books) => emit(FeaturedBooksSuccess(books)),
     );
   }
+
+  Future<void> refreshFeaturedBooks() async {
+    await fetchFeaturedBooks();
+  }
 }

@@ -9,37 +9,44 @@ class BookEntity extends Equatable {
     required this.image,
     required this.title,
     required this.authorName,
-    required this.price,
-    required this.rating,
+    this.price, // Optional - not all books have prices
+    this.rating, // Optional - not all books have ratings
     required this.category,
-    required this.previewLink,
+    this.previewLink, // Optional - preview might not be available
   });
 
   @HiveField(0)
-  final String? bookId;
+  final String bookId; 
+
   @HiveField(1)
-  final String? image;
+  final String image;
+
   @HiveField(2)
-  final String? title;
+  final String title;
+
   @HiveField(3)
-  final String? authorName;
+  final String authorName;
+
   @HiveField(4)
   final num? price;
+
   @HiveField(5)
   final num? rating;
+
   @HiveField(6)
-  final String? category;
+  final String category;
+
   @HiveField(7)
   final String? previewLink;
 
   @override
   List<Object?> get props => [
+    bookId,
     image,
     title,
     authorName,
     price,
     rating,
-    bookId,
     category,
     previewLink,
   ];

@@ -26,4 +26,8 @@ class NewestBooksCubit extends Cubit<NewestBooksState> {
       (books) => emit(NewestBooksSuccess(books)),
     );
   }
+
+  Future<void> refreshNewestBooks() async {
+    await fetchNewestBooks();
+  }
 }

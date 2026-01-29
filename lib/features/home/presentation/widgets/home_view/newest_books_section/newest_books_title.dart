@@ -10,11 +10,16 @@ class NewestBooksTitle extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SliverToBoxAdapter(
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: AppPadding.p20),
-        child: Text(
-          'Newest Books',
-          style: Styles.textStyle18.copyWith(fontWeight: FontWeightHelper.bold),
+      child: Semantics(
+        label: 'Newest Books Section',
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: AppPadding.p20),
+          child: Text(
+            'Newest Books',
+            style: Styles.textStyle18.copyWith(
+              fontWeight: FontWeightHelper.bold,
+            ),
+          ),
         ),
       ),
     );

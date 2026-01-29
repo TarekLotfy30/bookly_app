@@ -2,26 +2,32 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../../core/widgets/custom_error_widget.dart';
-import '../../../../../../core/widgets/custom_loading_indicator.dart';
-import '../../../controllers/featured_books_cubit/featured_books_cubit.dart';
-import 'carousel_slider_for_featured_books.dart';
-import 'custom_list_view_item.dart';
+import '../../../controllers/newest_books_cubit/newest_books_cubit.dart';
+import 'newest_books_list_view.dart';
+import 'shimmer/newest_books_shimmer_item.dart';
 
-class FeaturedBooksSection extends StatelessWidget {
-  const FeaturedBooksSection({super.key});
+class NewestBooks extends StatelessWidget {
+  const NewestBooks({super.key});
 
   @override
   Widget build(BuildContext context) {
     return SliverToBoxAdapter(
-      child: BlocBuilder<FeaturedBooksCubit, FeaturedBooksState>(
+      child: BlocBuilder<NewestBooksCubit, NewestBooksState>(
+        buildWhen: (previous, current) => previous != current,
         builder: (context, state) {
           return switch (state) {
-            FeaturedBooksInitial() => const SizedBox.shrink(),
-            FeaturedBooksLoading() => const CustomLoadingIndicator(),
-            FeaturedBooksFailure(:final errorMessage) => CustomErrorWidget(
+            NewestBooksInitial() => const SizedBox.shrink(),
+            // NewestBooksLoading() => const CustomLoadingIndicator(),
+            NewestBooksLoading() => SliverList(
+              delegate: SliverChildBuilderDelegate(
+                childCount: 5, // Show 5 skeleton items
+                (context, index) => const NewestBooksShimmerItem(),
+              ),
+            ),
+            NewestBooksFailure(:final errorMessage) => CustomErrorWidget(
               errorMessage,
             ),
-            FeaturedBooksSuccess(:final books) when books.isEmpty =>
+            NewestBooksSuccess(:final books) when books.isEmpty =>
               const SliverToBoxAdapter(
                 child: Center(
                   child: Padding(
@@ -43,12 +49,9 @@ class FeaturedBooksSection extends StatelessWidget {
                   ),
                 ),
               ),
-            FeaturedBooksSuccess(:final books) =>
-              CarouselSliderForFeaturedBooks(
-                items: books
-                    .map((book) => CustomBookItem(bookImage: book.image))
-                    .toList(),
-              ),
+            NewestBooksSuccess(:final books) => NewestBooksListView(
+              books: books,
+            ),
           };
         },
       ),

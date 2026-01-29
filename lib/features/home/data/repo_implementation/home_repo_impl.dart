@@ -15,30 +15,28 @@ class HomeRepoImpl implements IHomeRepo {
   @override
   Future<Either<Failure, List<BookEntity>>> fetchFeaturedBooks() async {
     try {
-      final books = await _remoteDataSource.fetchFeaturedBooks();
-      return Right(books);
+      final featuredBooks = await _remoteDataSource.fetchFeaturedBooks();
+      return Right(featuredBooks);
+    } on DioException catch (e) {
+      return Left(ServerFailure.fromDioError(e));
     } on Exception catch (e) {
-      if (e is DioException) {
-        return left(ServerFailure.fromDioError(e));
-      }
-      return left(ServerFailure(e.toString()));
+      return Left(ServerFailure(e.toString()));
     } catch (e) {
-      rethrow;
+      return Left(ServerFailure('An unexpected error occurred: $e'));
     }
   }
 
   @override
   Future<Either<Failure, List<BookEntity>>> fetchNewestBooks() async {
     try {
-      final books = await _remoteDataSource.fetchNewestBooks();
-      return Right(books);
+      final newestBooks = await _remoteDataSource.fetchNewestBooks();
+      return Right(newestBooks);
+    } on DioException catch (e) {
+      return Left(ServerFailure.fromDioError(e));
     } on Exception catch (e) {
-      if (e is DioException) {
-        return left(ServerFailure.fromDioError(e));
-      }
-      return left(ServerFailure(e.toString()));
+      return Left(ServerFailure(e.toString()));
     } catch (e) {
-      rethrow;
+      return Left(ServerFailure('An unexpected error occurred: $e'));
     }
   }
 
@@ -47,14 +45,16 @@ class HomeRepoImpl implements IHomeRepo {
     required String category,
   }) async {
     try {
-      return Right(
-        await _remoteDataSource.fetchSimilarBooks(category: category),
+      final similarBooks = await _remoteDataSource.fetchSimilarBooks(
+        category: category,
       );
+      return Right(similarBooks);
+    } on DioException catch (e) {
+      return Left(ServerFailure.fromDioError(e));
     } on Exception catch (e) {
-      if (e is DioException) {
-        return left(ServerFailure.fromDioError(e));
-      }
-      return left(ServerFailure(e.toString()));
+      return Left(ServerFailure(e.toString()));
+    } catch (e) {
+      return Left(ServerFailure('An unexpected error occurred: $e'));
     }
   }
 }

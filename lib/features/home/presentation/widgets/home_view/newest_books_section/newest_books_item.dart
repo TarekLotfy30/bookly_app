@@ -30,7 +30,7 @@ class NewestBooksItem extends StatelessWidget {
         child: Row(
           children: [
             // Book Picture
-            BookImage(image: book.image ?? ''),
+            BookImage(image: book.image),
             horizontalSpacing(30),
             Expanded(
               child: Padding(
@@ -40,7 +40,7 @@ class NewestBooksItem extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
                     Text(
-                      book.title ?? '',
+                      book.title,
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
                       style: Styles.textStyle20.copyWith(fontFamily: kHanuman),
@@ -48,7 +48,7 @@ class NewestBooksItem extends StatelessWidget {
                     Opacity(
                       opacity: 0.6,
                       child: Text(
-                        book.authorName ?? '',
+                        book.authorName,
                         style: Styles.textStyle14,
                       ),
                     ),

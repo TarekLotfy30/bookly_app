@@ -23,7 +23,7 @@ class Item extends BookEntity {
     this.saleInfo,
     this.accessInfo,
   }) : super(
-         bookId: id,
+         bookId: id ?? '',
          image: volumeInfo?.imageLinks?.thumbnail ?? '',
          title: volumeInfo?.title ?? '',
          authorName: volumeInfo?.authors?.first ?? '',
