@@ -62,10 +62,24 @@ class AppCachedNetworkImage extends StatelessWidget {
       // maxHeightDiskCache: 800,
       fadeInDuration: const Duration(milliseconds: 500),
       fadeInCurve: Curves.easeIn,
-      placeholder: (context, url) => Container(color: Colors.grey[200]),
       placeholderFadeInDuration: const Duration(milliseconds: 500),
-      errorWidget: (context, url, error) =>
-          const Center(child: Icon(Icons.error_outline, color: Colors.red)),
+      placeholder: (context, url) => ColoredBox(
+        color: Theme.of(context).colorScheme.surfaceVariant,
+        child: Center(
+          child: CircularProgressIndicator(
+            strokeWidth: 2,
+            color: Theme.of(context).colorScheme.primary,
+          ),
+        ),
+      ),
+      errorWidget: (context, url, error) => ColoredBox(
+        color: Theme.of(context).colorScheme.errorContainer,
+        child: Icon(
+          Icons.broken_image_outlined,
+          color: Theme.of(context).colorScheme.onErrorContainer,
+          size: 32,
+        ),
+      ),
       // imageBuilder: (context, imageProvider) => Container(
       //   decoration: BoxDecoration(
       //     image: DecorationImage(image: imageProvider, fit: BoxFit.fill),

@@ -14,56 +14,57 @@ class NewestBooksItem extends StatelessWidget {
 
   final BookEntity book;
 
+  Future<void> _navigateToBookDetails(BuildContext context) async {
+    await context.pushNamed(Routes.bookDetailsRoute, extra: book);
+  }
+
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      onTap: () async {
-        context.pushNamed(Routes.bookDetailsRoute, extra: book);
-      },
+    return Material(
       borderRadius: BorderRadius.circular(16),
-      splashColor: Colors.transparent,
-      highlightColor: Colors.transparent,
-      hoverColor: Colors.transparent,
-      focusColor: Colors.transparent,
-      child: SizedBox(
-        height: 130,
-        child: Row(
-          children: [
-            // Book Picture
-            BookImage(image: book.image),
-            horizontalSpacing(30),
-            Expanded(
-              child: Padding(
-                padding: const EdgeInsets.symmetric(vertical: 10),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    Text(
-                      book.title,
-                      maxLines: 2,
-                      overflow: TextOverflow.ellipsis,
-                      style: Styles.textStyle20.copyWith(fontFamily: kHanuman),
-                    ),
-                    Opacity(
-                      opacity: 0.6,
-                      child: Text(
-                        book.authorName,
-                        style: Styles.textStyle14,
+      color: Colors.transparent,
+      child: InkWell(
+        onTap: () => _navigateToBookDetails(context),
+        borderRadius: BorderRadius.circular(16),
+        child: SizedBox(
+          height: 130,
+          child: Row(
+            children: [
+              // Book Picture
+              BookImage(image: book.image, bookId: book.bookId),
+              horizontalSpacing(30),
+              Expanded(
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 10),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      Text(
+                        book.title,
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
+                        style: Styles.textStyle20.copyWith(
+                          fontFamily: kHanuman,
+                        ),
                       ),
-                    ),
-                    const Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text('Free', style: Styles.textStyle16),
-                        NewestBookRating(),
-                      ],
-                    ),
-                  ],
+                      Opacity(
+                        opacity: 0.6,
+                        child: Text(book.authorName, style: Styles.textStyle14),
+                      ),
+                      const Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text('Free', style: Styles.textStyle16),
+                          NewestBookRating(),
+                        ],
+                      ),
+                    ],
+                  ),
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

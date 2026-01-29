@@ -8,18 +8,18 @@ import '../../../domain/use_cases/fetch_newest_books_use_case.dart';
 part 'newest_books_state.dart';
 
 class NewestBooksCubit extends Cubit<NewestBooksState> {
-  NewestBooksCubit(this.fetchNewestBooksUseCase) : super(NewestBooksInitial());
+  NewestBooksCubit(this._fetchNewestBooksUseCase) : super(NewestBooksInitial());
 
-  final FetchNewestBooksUseCase fetchNewestBooksUseCase;
+  final FetchNewestBooksUseCase _fetchNewestBooksUseCase;
 
-  Future<void> fetchNewestBooks() async {
-    if (state is NewestBooksSuccess) {
+  Future<void> fetchNewestBooks({bool forceRefresh = false}) async {
+    if (state is NewestBooksSuccess && !forceRefresh) {
       return;
     }
 
     emit(NewestBooksLoading());
 
-    final result = await fetchNewestBooksUseCase.call(NoParams());
+    final result = await _fetchNewestBooksUseCase.call(NoParams());
 
     result.fold(
       (failure) => emit(NewestBooksFailure(failure.errMessage)),
@@ -28,6 +28,6 @@ class NewestBooksCubit extends Cubit<NewestBooksState> {
   }
 
   Future<void> refreshNewestBooks() async {
-    await fetchNewestBooks();
+    await fetchNewestBooks(forceRefresh: true);
   }
 }

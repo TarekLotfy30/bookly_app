@@ -12,22 +12,19 @@ import 'features/home/presentation/controllers/newest_books_cubit/newest_books_c
 class BooklyApp extends StatelessWidget {
   const BooklyApp({super.key});
 
-  // final AppRouter appRouter;
-
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        //TODO(tarek): uncomment the fetch methods if needed
         BlocProvider(
           create: (context) =>
-              FeaturedBooksCubit(getIt.get<FetchFeaturedBooksUseCase>()),
-          // ..fetchFeaturedBooks(),
+              FeaturedBooksCubit(getIt.get<FetchFeaturedBooksUseCase>())
+                ..fetchFeaturedBooks(),
         ),
         BlocProvider(
           create: (context) =>
-              NewestBooksCubit(getIt.get<FetchNewestBooksUseCase>()),
-          //..fetchNewestBooks(),
+              NewestBooksCubit(getIt.get<FetchNewestBooksUseCase>())
+                ..fetchNewestBooks(),
         ),
       ],
       child: MaterialApp.router(

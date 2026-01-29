@@ -1,20 +1,22 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 
-class CarouselSliderForFeaturedBooks extends StatelessWidget {
-  const CarouselSliderForFeaturedBooks({super.key, required this.items});
+import '../../../../domain/entities/book_entity.dart';
+import 'custom_list_view_item.dart';
 
-  final List<Widget> items;
+class CarouselSliderForFeaturedBooks extends StatelessWidget {
+  const CarouselSliderForFeaturedBooks({super.key, required this.books});
+
+  final List<BookEntity> books;
 
   @override
   Widget build(BuildContext context) {
-    return CarouselSlider(
+    return CarouselSlider.builder(
       options: CarouselOptions(
         height: MediaQuery.of(context).size.height * 0.3,
         viewportFraction: 0.4,
         initialPage: 0,
         enableInfiniteScroll: true,
-        reverse: false,
         autoPlay: false,
         autoPlayInterval: const Duration(seconds: 4),
         autoPlayAnimationDuration: const Duration(milliseconds: 400),
@@ -23,7 +25,10 @@ class CarouselSliderForFeaturedBooks extends StatelessWidget {
         enlargeFactor: 0.4,
         scrollDirection: Axis.horizontal,
       ),
-      items: items,
+      itemCount: books.length,
+      itemBuilder: (context, index, realIndex) {
+        return CustomBookItem(bookImage: books[index].image);
+      },
     );
   }
 }

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-import '../../../../core/utils/functions/launch_url.dart';
-import '../../../../core/utils/styles/font_weight_helper.dart';
-import '../../../../core/utils/styles/text_style.dart';
-import '../../../../core/widgets/app_button_widget.dart';
-import '../../domain/entities/book_entity.dart';
+import '../../../../../core/utils/functions/launch_url.dart';
+import '../../../../../core/utils/styles/font_weight_helper.dart';
+import '../../../../../core/utils/styles/text_style.dart';
+import '../../../../../core/widgets/app_button_widget.dart';
+import '../../../domain/entities/book_entity.dart';
 
 class BookActions extends StatelessWidget {
   const BookActions({super.key, required this.book});

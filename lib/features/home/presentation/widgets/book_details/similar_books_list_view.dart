@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../../core/utils/functions/functions.dart';
-import '../../../../core/widgets/custom_error_widget.dart';
-import '../../../../core/widgets/custom_loading_indicator.dart';
-import '../controllers/similar_books/similar_books_cubit.dart';
-import 'home_view/featured_books_section/custom_list_view_item.dart';
+import '../../../../../core/utils/functions/functions.dart';
+import '../../../../../core/widgets/custom_error_widget.dart';
+import '../../../../../core/widgets/custom_loading_indicator.dart';
+import '../../controllers/similar_books/similar_books_cubit.dart';
+import '../home_view/featured_books_section/custom_list_view_item.dart';
 
 class SimilarBooksListView extends StatelessWidget {
   const SimilarBooksListView({super.key});
@@ -26,7 +26,10 @@ class SimilarBooksListView extends StatelessWidget {
             ),
           );
         } else if (state is SimilarBooksFailure) {
-          return CustomErrorWidget(state.errorMessage);
+          return CustomErrorWidget(
+            errorMessage: state.errorMessage,
+            onRetry: () {},
+          );
         } else {
           return const CustomLoadingIndicator();
         }

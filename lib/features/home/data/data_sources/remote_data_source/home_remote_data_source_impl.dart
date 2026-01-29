@@ -1,13 +1,10 @@
 import 'package:dio/dio.dart';
 
-import '../../../../../constants.dart';
 import '../../../../../core/errors/failure.dart';
-import '../../../../../core/services/local/hive_local_storage.dart';
 import '../../../../../core/services/network/api_service.dart';
 import '../../../../../core/services/network/endpoints.dart';
 import '../../../domain/entities/book_entity.dart';
 import '../../models/book_response_model/book_response_model.dart';
-import '../../models/book_response_model/item.dart';
 import 'i_home_remote_data_source.dart';
 
 class HomeRemoteDataSourceImpl implements IHomeRemoteDataSource {
@@ -57,27 +54,39 @@ class HomeRemoteDataSourceImpl implements IHomeRemoteDataSource {
     Response<Map<String, dynamic>> responseData,
   ) async {
     if (responseData.statusCode == 200) {
-      if (responseData.data?['items'] == null) {
-        throw ServerFailure('No data found');
+      final data = responseData.data;
+
+      if (data == null) {
+        throw ServerFailure('Response data is null');
+      }
+
+      if (data['items'] == null) {
+        throw ServerFailure('No books found in response');
       }
 
       final BookResponseModel bookModel = BookResponseModel.fromJson(
         responseData.data!,
       );
 
+      if (bookModel.items == null || bookModel.items!.isEmpty) {
+        throw ServerFailure('Book list is empty');
+      }
+
       // save to Hive
-      await HiveHelper.addAll<Item>(
-        values: bookModel.items!,
-        boxName: bookHiveBox,
-      );
+      // await HiveHelper.addAll<Item>(
+      //   values: bookModel.items!,
+      //   boxName: bookHiveBox,
+      // );
 
       // Items are already BookEntity (since Item extends BookEntity)
       return bookModel.items!;
     } else {
+      // Let Dio handle non-200 status codes
       throw DioException(
         requestOptions: responseData.requestOptions,
         response: responseData,
-        stackTrace: StackTrace.current,
+        type: DioExceptionType.badResponse,
+        error: 'HTTP ${responseData.statusCode}',
       );
     }
   }

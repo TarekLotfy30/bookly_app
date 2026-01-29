@@ -15,9 +15,9 @@ final getIt = GetIt.instance;
 
 Future<void> setupServiceLocator() async {
   // Hive
-  await HiveHelper.init();
-  HiveHelper.registerAdapter(BookEntityAdapter());
-  await HiveHelper.openBox<BookEntity>(bookHiveBox);
+  // await HiveHelper.init();
+  // HiveHelper.registerAdapter(BookEntityAdapter());
+  // await HiveHelper.openBox<BookEntity>(bookHiveBox);
 
   // Dio & ApiService
   getIt.registerSingleton<ApiService>(ApiService(Dio()));

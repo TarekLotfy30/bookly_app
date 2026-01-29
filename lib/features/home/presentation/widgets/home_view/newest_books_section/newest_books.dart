@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../../core/widgets/custom_error_widget.dart';
 import '../../../controllers/newest_books_cubit/newest_books_cubit.dart';
+import 'empty_newest_books_state.dart';
 import 'newest_books_list_view.dart';
 import 'shimmer/newest_books_shimmer_item.dart';
 
@@ -11,50 +12,45 @@ class NewestBooks extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SliverToBoxAdapter(
-      child: BlocBuilder<NewestBooksCubit, NewestBooksState>(
-        buildWhen: (previous, current) => previous != current,
-        builder: (context, state) {
-          return switch (state) {
-            NewestBooksInitial() => const SizedBox.shrink(),
-            // NewestBooksLoading() => const CustomLoadingIndicator(),
-            NewestBooksLoading() => SliverList(
-              delegate: SliverChildBuilderDelegate(
-                childCount: 5, // Show 5 skeleton items
-                (context, index) => const NewestBooksShimmerItem(),
-              ),
+    return BlocBuilder<NewestBooksCubit, NewestBooksState>(
+      buildWhen: (previous, current) {
+        // ✅ More specific rebuild conditions
+        // Only rebuild if:
+        // 1. State type changes (loading -> success)
+        // 2. Success state books list changes
+        if (previous.runtimeType != current.runtimeType) {
+          return true;
+        }
+
+        if (previous is NewestBooksSuccess && current is NewestBooksSuccess) {
+          return previous.books != current.books;
+        }
+
+        if (previous is NewestBooksFailure && current is NewestBooksFailure) {
+          return previous.errorMessage != current.errorMessage;
+        }
+
+        return true;
+      },
+      builder: (context, state) {
+        return switch (state) {
+          NewestBooksInitial() => const SizedBox.shrink(),
+          NewestBooksLoading() => SliverList(
+            delegate: SliverChildBuilderDelegate(
+              childCount: 5,
+              (context, index) => const NewestBooksShimmerItem(),
             ),
-            NewestBooksFailure(:final errorMessage) => CustomErrorWidget(
-              errorMessage,
-            ),
-            NewestBooksSuccess(:final books) when books.isEmpty =>
-              const SliverToBoxAdapter(
-                child: Center(
-                  child: Padding(
-                    padding: EdgeInsets.all(40),
-                    child: Column(
-                      children: [
-                        Icon(
-                          Icons.library_books_outlined,
-                          size: 64,
-                          color: Colors.grey,
-                        ),
-                        SizedBox(height: 16),
-                        Text(
-                          'No books available',
-                          style: TextStyle(fontSize: 18, color: Colors.grey),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-              ),
-            NewestBooksSuccess(:final books) => NewestBooksListView(
-              books: books,
-            ),
-          };
-        },
-      ),
+          ),
+          NewestBooksFailure(:final errorMessage) => CustomErrorWidget(
+            errorMessage: errorMessage,
+            onRetry: () =>
+                context.read<NewestBooksCubit>().refreshNewestBooks(),
+          ),
+          NewestBooksSuccess(:final books) when books.isEmpty =>
+            const EmptyNewestBooksState(),
+          NewestBooksSuccess(:final books) => NewestBooksListView(books: books),
+        };
+      },
     );
   }
 }
