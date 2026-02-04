@@ -12,44 +12,43 @@ class FeaturedBooksSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SliverToBoxAdapter(
-      child: BlocBuilder<FeaturedBooksCubit, FeaturedBooksState>(
-        buildWhen: (previous, current) {
-          // ✅ More specific rebuild conditions
-          // Only rebuild if:
-          // 1. State type changes (loading -> success)
-          // 2. Success state books list changes
-          if (previous.runtimeType != current.runtimeType) {
-            return true;
-          }
-
-          if (previous is FeaturedBooksSuccess &&
-              current is FeaturedBooksSuccess) {
-            return previous.books != current.books;
-          }
-
-          if (previous is FeaturedBooksFailure &&
-              current is FeaturedBooksFailure) {
-            return previous.errorMessage != current.errorMessage;
-          }
-
+    return BlocBuilder<FeaturedBooksCubit, FeaturedBooksState>(
+      buildWhen: (previous, current) {
+        // ✅ More specific rebuild conditions
+        // Only rebuild if:
+        // 1. State type changes (loading -> success)
+        // 2. Success state books list changes
+        if (previous.runtimeType != current.runtimeType) {
           return true;
-        },
-        builder: (context, state) {
-          return switch (state) {
-            FeaturedBooksInitial() => const SizedBox.shrink(),
-            FeaturedBooksLoading() => const FeaturedBooksLoadingIndicator(),
-            FeaturedBooksFailure(:final errorMessage) => CustomErrorWidget(
-              errorMessage: errorMessage,
-              onRetry: () => context.read<FeaturedBooksCubit>().retry(),
-            ),
-            FeaturedBooksSuccess(:final books) when books.isEmpty =>
-              const EmptyFeaturedBooksState(),
-            FeaturedBooksSuccess(:final books) =>
-              CarouselSliderForFeaturedBooks(books: books),
-          };
-        },
-      ),
+        }
+
+        if (previous is FeaturedBooksSuccess &&
+            current is FeaturedBooksSuccess) {
+          return previous.books != current.books;
+        }
+
+        if (previous is FeaturedBooksFailure &&
+            current is FeaturedBooksFailure) {
+          return previous.errorMessage != current.errorMessage;
+        }
+
+        return true;
+      },
+      builder: (context, state) {
+        return switch (state) {
+          FeaturedBooksInitial() => const SizedBox.shrink(),
+          FeaturedBooksLoading() => const FeaturedBooksLoadingIndicator(),
+          FeaturedBooksFailure(:final errorMessage) => CustomErrorWidget(
+            errorMessage: errorMessage,
+            onRetry: () => context.read<FeaturedBooksCubit>().retry(),
+          ),
+          FeaturedBooksSuccess(:final books) when books.isEmpty =>
+            const EmptyFeaturedBooksState(),
+          FeaturedBooksSuccess(:final books) => CarouselSliderForFeaturedBooks(
+            books: books,
+          ),
+        };
+      },
     );
   }
 }

@@ -6,7 +6,6 @@ import 'core/di/service_locator.dart';
 import 'core/services/network/observer.dart';
 
 Future<void> main() async {
-
   setupServiceLocator();
   Bloc.observer = MyBlocObserver();
   runApp(

@@ -11,24 +11,26 @@ class CarouselSliderForFeaturedBooks extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CarouselSlider.builder(
-      options: CarouselOptions(
-        height: MediaQuery.of(context).size.height * 0.3,
-        viewportFraction: 0.4,
-        initialPage: 0,
-        enableInfiniteScroll: true,
-        autoPlay: false,
-        autoPlayInterval: const Duration(seconds: 4),
-        autoPlayAnimationDuration: const Duration(milliseconds: 400),
-        autoPlayCurve: Curves.fastOutSlowIn,
-        enlargeCenterPage: true,
-        enlargeFactor: 0.4,
-        scrollDirection: Axis.horizontal,
+    return SliverToBoxAdapter(
+      child: CarouselSlider.builder(
+        options: CarouselOptions(
+          height: MediaQuery.of(context).size.height * 0.3,
+          viewportFraction: 0.4,
+          initialPage: 0,
+          enableInfiniteScroll: true,
+          autoPlay: false,
+          autoPlayInterval: const Duration(seconds: 4),
+          autoPlayAnimationDuration: const Duration(milliseconds: 400),
+          autoPlayCurve: Curves.fastOutSlowIn,
+          enlargeCenterPage: true,
+          enlargeFactor: 0.4,
+          scrollDirection: Axis.horizontal,
+        ),
+        itemCount: books.length,
+        itemBuilder: (context, index, realIndex) {
+          return CustomBookItem(bookImage: books[index].image);
+        },
       ),
-      itemCount: books.length,
-      itemBuilder: (context, index, realIndex) {
-        return CustomBookItem(bookImage: books[index].image);
-      },
     );
   }
 }

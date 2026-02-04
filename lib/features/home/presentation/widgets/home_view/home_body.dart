@@ -32,7 +32,6 @@ class HomeBody extends StatelessWidget {
       onRefresh: () => _onRefresh(context),
       child: SafeArea(
         child: CustomScrollView(
-          // Required for pull-to-refresh
           physics: const AlwaysScrollableScrollPhysics(),
           slivers: [
             // Home Header Section
