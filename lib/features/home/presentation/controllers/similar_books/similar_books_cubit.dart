@@ -7,17 +7,19 @@ import '../../../domain/use_cases/fetch_similar_books_use_case.dart';
 part 'similar_books_state.dart';
 
 class SimilarBooksCubit extends Cubit<SimilarBooksState> {
-  SimilarBooksCubit({required this.fetchSimilarBooksUseCase})
-    : super(SimilarBooksInitial());
+  SimilarBooksCubit({
+    required FetchSimilarBooksUseCase fetchSimilarBooksUseCase,
+  }) : _fetchSimilarBooksUseCase = fetchSimilarBooksUseCase,
+       super(SimilarBooksInitial());
 
-  final FetchSimilarBooksUseCase fetchSimilarBooksUseCase;
+  final FetchSimilarBooksUseCase _fetchSimilarBooksUseCase;
 
   Future<void> getSimilarBooks({required String category}) async {
     if (state is SimilarBooksSuccess) {
       return;
     }
     emit(SimilarBooksLoading());
-    final result = await fetchSimilarBooksUseCase.call(category);
+    final result = await _fetchSimilarBooksUseCase.call(category);
     result.fold(
       (failure) => emit(SimilarBooksFailure(failure.errMessage)),
       (books) => emit(SimilarBooksSuccess(books)),

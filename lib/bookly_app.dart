@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -13,25 +15,33 @@ class BooklyApp extends StatelessWidget {
   const BooklyApp({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    return MultiBlocProvider(
-      providers: [
-        BlocProvider(
-          create: (context) =>
-              FeaturedBooksCubit(getIt.get<FetchFeaturedBooksUseCase>())
-                ..fetchFeaturedBooks(),
-        ),
-        BlocProvider(
-          create: (context) =>
-              NewestBooksCubit(getIt.get<FetchNewestBooksUseCase>())
-                ..fetchNewestBooks(),
-        ),
-      ],
-      child: MaterialApp.router(
-        debugShowCheckedModeBanner: false,
-        routerConfig: AppRouter.router,
-        theme: AppTheme.darkMode,
+  Widget build(BuildContext context) => MultiBlocProvider(
+    providers: [
+      BlocProvider(
+        create: (context) {
+          final cubit = FeaturedBooksCubit(
+            getIt.get<FetchFeaturedBooksUseCase>(),
+          );
+          unawaited(
+            cubit.fetchFeaturedBooks(),
+          ); // بنقول لـ Flutter سيبها تشتغل في الخلفية
+          return cubit;
+        },
       ),
-    );
-  }
+      BlocProvider(
+        create: (context) {
+          final cubit = NewestBooksCubit(getIt.get<FetchNewestBooksUseCase>());
+          unawaited(
+            cubit.fetchNewestBooks(),
+          ); // بنقول لـ Flutter سيبها تشتغل في الخلفية
+          return cubit;
+        },
+      ),
+    ],
+    child: MaterialApp.router(
+      debugShowCheckedModeBanner: false,
+      routerConfig: AppRouter.router,
+      theme: AppTheme.darkMode,
+    ),
+  );
 }

@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../../core/utils/functions/functions.dart';
@@ -8,7 +9,7 @@ import 'custom_book_details_app_bar.dart';
 import 'similar_books_section.dart';
 
 class BookDetailsBody extends StatelessWidget {
-  const BookDetailsBody({super.key, required this.book});
+  const BookDetailsBody({required this.book, super.key});
 
   final BookEntity book;
 
@@ -35,5 +36,11 @@ class BookDetailsBody extends StatelessWidget {
         ),
       ],
     );
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(DiagnosticsProperty<BookEntity>('book', book));
   }
 }

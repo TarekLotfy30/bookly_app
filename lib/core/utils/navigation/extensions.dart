@@ -12,8 +12,8 @@ extension Navigation on BuildContext {
 
   Future<dynamic> removeAllAndNavigateToNamedRoute(
     String routeName, {
-    Object? arguments,
     required RoutePredicate predicate,
+    Object? arguments,
   }) => Navigator.of(
     this,
   ).pushNamedAndRemoveUntil(routeName, predicate, arguments: arguments);

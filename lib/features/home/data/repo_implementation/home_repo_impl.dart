@@ -21,7 +21,7 @@ class HomeRepoImpl implements IHomeRepo {
       return Left(ServerFailure.fromDioError(e));
     } on Exception catch (e) {
       return Left(ServerFailure(e.toString()));
-    } catch (e) {
+    } on Object catch (e) {
       return Left(ServerFailure('An unexpected error occurred: $e'));
     }
   }
@@ -35,7 +35,7 @@ class HomeRepoImpl implements IHomeRepo {
       return Left(ServerFailure.fromDioError(e));
     } on Exception catch (e) {
       return Left(ServerFailure(e.toString()));
-    } catch (e) {
+    } on Object catch (e) {
       return Left(ServerFailure('An unexpected error occurred: $e'));
     }
   }
@@ -53,7 +53,7 @@ class HomeRepoImpl implements IHomeRepo {
       return Left(ServerFailure.fromDioError(e));
     } on Exception catch (e) {
       return Left(ServerFailure(e.toString()));
-    } catch (e) {
+    } on Object catch (e) {
       return Left(ServerFailure('An unexpected error occurred: $e'));
     }
   }

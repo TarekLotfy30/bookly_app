@@ -43,8 +43,7 @@ class NewestBooks extends StatelessWidget {
           ),
           NewestBooksFailure(:final errorMessage) => CustomErrorWidget(
             errorMessage: errorMessage,
-            onRetry: () =>
-                context.read<NewestBooksCubit>().refreshNewestBooks(),
+            onRetry: () => context.read<NewestBooksCubit>().retry(),
           ),
           NewestBooksSuccess(:final books) when books.isEmpty =>
             const EmptyNewestBooksState(),

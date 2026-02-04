@@ -19,7 +19,6 @@ class SplashViewBody extends StatelessWidget {
           child: AnimatedTextKit(
             onFinished: () => navigateToHomeScreen(context),
             isRepeatingAnimation: false,
-            repeatForever: false,
             totalRepeatCount: 0,
             animatedTexts: [
               TypewriterAnimatedText(

@@ -29,7 +29,7 @@ class AppRouter {
         path: Routes.bookDetailsRoute,
         name: Routes.bookDetailsRoute,
         builder: (context, state) =>
-            BookDetailsView(book: state.extra as BookEntity),
+            BookDetailsView(book: state.extra! as BookEntity),
       ),
       GoRoute(
         path: Routes.searchRoute,

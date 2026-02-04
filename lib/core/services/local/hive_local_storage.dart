@@ -20,14 +20,14 @@ class HiveHelper {
 
   /// Register a type adapter for custom objects
   /// Example: HiveHelper.registerAdapter(PersonAdapter());
-  static void registerAdapter<T>(TypeAdapter<T> adapter) {
+  static void registerAdapter<T>(final TypeAdapter<T> adapter) {
     if (!Hive.isAdapterRegistered(adapter.typeId)) {
       Hive.registerAdapter(adapter);
     }
   }
 
   /// Open a box with a specific name
-  static Future<Box<T>> openBox<T>(String boxName) async {
+  static Future<Box<T>> openBox<T>(final String boxName) async {
     if (Hive.isBoxOpen(boxName)) {
       return Hive.box<T>(boxName);
     }
@@ -35,12 +35,12 @@ class HiveHelper {
   }
 
   /// Get an opened box
-  static Box<T> getBox<T>(String boxName) {
+  static Box<T> getBox<T>(final String boxName) {
     return Hive.box<T>(boxName);
   }
 
   /// Check if a box is open
-  static bool isBoxOpen(String boxName) {
+  static bool isBoxOpen(final String boxName) {
     return Hive.isBoxOpen(boxName);
   }
 
@@ -48,9 +48,9 @@ class HiveHelper {
 
   /// Save a single value with a key
   static Future<void> put<T>({
-    required String key,
-    required T value,
-    required String boxName,
+    required final String key,
+    required final T value,
+    required final String boxName,
   }) async {
     final box = await openBox<T>(boxName);
     await box.put(key, value);
@@ -58,9 +58,9 @@ class HiveHelper {
 
   /// Get a value by key
   static T? get<T>({
-    required String key,
-    required String boxName,
-    T? defaultValue,
+    required final String key,
+    required final String boxName,
+    final T? defaultValue,
   }) {
     if (!isBoxOpen(boxName)) {
       return defaultValue;
@@ -71,15 +71,18 @@ class HiveHelper {
 
   /// Delete a value by key
   static Future<void> delete({
-    required String key,
-    required String boxName,
+    required final String key,
+    required final String boxName,
   }) async {
     final box = await openBox(boxName);
     await box.delete(key);
   }
 
   /// Check if a key exists
-  static bool containsKey({required String key, required String boxName}) {
+  static bool containsKey({
+    required final String key,
+    required final String boxName,
+  }) {
     if (!isBoxOpen(boxName)) {
       return false;
     }
@@ -88,15 +91,18 @@ class HiveHelper {
   }
 
   /// Add a value to the box (auto-incrementing key)
-  static Future<int> add<T>({required T value, required String boxName}) async {
+  static Future<int> add<T>({
+    required final T value,
+    required final String boxName,
+  }) async {
     final box = await openBox<T>(boxName);
     return box.add(value);
   }
 
   /// Add all values to the box
   static Future<Iterable<int>> addAll<T>({
-    required List<T> values,
-    required String boxName,
+    required final List<T> values,
+    required final String boxName,
   }) async {
     final box = await openBox<T>(boxName);
     return box.addAll(values);
@@ -104,15 +110,15 @@ class HiveHelper {
 
   /// Put all key-value pairs
   static Future<void> putAll<T>({
-    required Map<String, T> entries,
-    required String boxName,
+    required final Map<String, T> entries,
+    required final String boxName,
   }) async {
     final box = await openBox<T>(boxName);
     await box.putAll(entries);
   }
 
   /// Get all values from a box
-  static List<T> getAll<T>({required String boxName}) {
+  static List<T> getAll<T>({required final String boxName}) {
     if (!isBoxOpen(boxName)) {
       return [];
     }
@@ -121,7 +127,7 @@ class HiveHelper {
   }
 
   /// Get all keys from a box
-  static List<dynamic> getAllKeys({required String boxName}) {
+  static List<dynamic> getAllKeys({required final String boxName}) {
     if (!isBoxOpen(boxName)) {
       return [];
     }
@@ -130,7 +136,10 @@ class HiveHelper {
   }
 
   /// Get value at specific index
-  static T? getAt<T>({required int index, required String boxName}) {
+  static T? getAt<T>({
+    required final int index,
+    required final String boxName,
+  }) {
     if (!isBoxOpen(boxName)) {
       return null;
     }
@@ -143,9 +152,9 @@ class HiveHelper {
 
   /// Put value at specific index
   static Future<void> putAt<T>({
-    required int index,
-    required T value,
-    required String boxName,
+    required final int index,
+    required final T value,
+    required final String boxName,
   }) async {
     final box = await openBox<T>(boxName);
     await box.putAt(index, value);
@@ -153,21 +162,21 @@ class HiveHelper {
 
   /// Delete value at specific index
   static Future<void> deleteAt({
-    required int index,
-    required String boxName,
+    required final int index,
+    required final String boxName,
   }) async {
     final box = await openBox(boxName);
     await box.deleteAt(index);
   }
 
   /// Clear all data in a box
-  static Future<void> clear({required String boxName}) async {
+  static Future<void> clear({required final String boxName}) async {
     final box = await openBox(boxName);
     await box.clear();
   }
 
   /// Get the length of a box
-  static int length({required String boxName}) {
+  static int length({required final String boxName}) {
     if (!isBoxOpen(boxName)) {
       return 0;
     }
@@ -176,14 +185,14 @@ class HiveHelper {
   }
 
   /// Check if box is empty
-  static bool isEmpty({required String boxName}) {
+  static bool isEmpty({required final String boxName}) {
     return length(boxName: boxName) == 0;
   }
 
   // ==================== Box Management ====================
 
   /// Close a specific box
-  static Future<void> closeBox(String boxName) async {
+  static Future<void> closeBox(final String boxName) async {
     if (isBoxOpen(boxName)) {
       await Hive.box(boxName).close();
     }
@@ -195,7 +204,7 @@ class HiveHelper {
   }
 
   /// Delete a box from disk
-  static Future<void> deleteBox(String boxName) async {
+  static Future<void> deleteBox(final String boxName) async {
     if (isBoxOpen(boxName)) {
       await Hive.box(boxName).deleteFromDisk();
     } else {
@@ -204,7 +213,7 @@ class HiveHelper {
   }
 
   /// Compact a box (reduces file size)
-  static Future<void> compact({required String boxName}) async {
+  static Future<void> compact({required final String boxName}) async {
     final box = await openBox(boxName);
     await box.compact();
   }
@@ -212,7 +221,10 @@ class HiveHelper {
   // ==================== Watch/Listen ====================
 
   /// Watch for changes in a box
-  static Stream<BoxEvent> watch({required String boxName, dynamic key}) {
+  static Stream<BoxEvent> watch({
+    required final String boxName,
+    final dynamic key,
+  }) {
     final box = Hive.box(boxName);
     return box.watch(key: key);
   }
@@ -221,8 +233,8 @@ class HiveHelper {
 
   /// Open an encrypted box (requires hive and encryption key)
   static Future<Box<T>> openEncryptedBox<T>({
-    required String boxName,
-    required List<int> encryptionKey,
+    required final String boxName,
+    required final List<int> encryptionKey,
   }) async {
     if (isBoxOpen(boxName)) {
       return Hive.box<T>(boxName);
@@ -237,8 +249,8 @@ class HiveHelper {
 
   /// Delete multiple keys
   static Future<void> deleteKeys({
-    required List<String> keys,
-    required String boxName,
+    required final List<String> keys,
+    required final String boxName,
   }) async {
     final box = await openBox(boxName);
     await box.deleteAll(keys);
@@ -246,8 +258,8 @@ class HiveHelper {
 
   /// Get values for multiple keys
   static Map<String, T?> getMultiple<T>({
-    required List<String> keys,
-    required String boxName,
+    required final List<String> keys,
+    required final String boxName,
   }) {
     if (!isBoxOpen(boxName)) {
       return {};
@@ -257,7 +269,7 @@ class HiveHelper {
   }
 
   /// Check if box exists on disk
-  static Future<bool> boxExists(String boxName) async {
+  static Future<bool> boxExists(final String boxName) async {
     return Hive.boxExists(boxName);
   }
 }

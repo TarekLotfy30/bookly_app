@@ -21,30 +21,33 @@ class HomeBody extends StatelessWidget {
   Future<void> _onRefresh(BuildContext context) async {
     // Trigger refresh for both cubits
     await Future.wait([
-      context.read<FeaturedBooksCubit>().retry(),
-      context.read<NewestBooksCubit>().refreshNewestBooks(),
+      BlocProvider.of<FeaturedBooksCubit>(context).retry(),
+      BlocProvider.of<NewestBooksCubit>(context).retry(),
     ]);
   }
 
   @override
-  Widget build(BuildContext context) {
-    return RefreshIndicator.adaptive(
-      onRefresh: () => _onRefresh(context),
-      child: SafeArea(
-        child: CustomScrollView(
-          physics: const AlwaysScrollableScrollPhysics(),
-          slivers: [
-            // Home Header Section
-            const CustomAppBar(),
-            const FeaturedBooksSection(),
-            SliverToBoxAdapter(child: verticalSpacing(30)),
-            // Newest Books Section
-            const NewestBooksTitle(),
-            SliverToBoxAdapter(child: verticalSpacing(20)),
-            const NewestBooks(),
-          ],
-        ),
+  Widget build(BuildContext context) => RefreshIndicator.adaptive(
+    edgeOffset: 20,
+    displacement: 20,
+    color: Colors.white,
+    strokeWidth: 2,
+    backgroundColor: Colors.black,
+    onRefresh: () => _onRefresh(context),
+    child: SafeArea(
+      child: CustomScrollView(
+        physics: const BouncingScrollPhysics(),
+        slivers: [
+          // Home Header Section
+          const CustomAppBar(),
+          const FeaturedBooksSection(),
+          SliverToBoxAdapter(child: verticalSpacing(30)),
+          // Newest Books Section
+          const NewestBooksTitle(),
+          SliverToBoxAdapter(child: verticalSpacing(20)),
+          const NewestBooks(),
+        ],
       ),
-    );
-  }
+    ),
+  );
 }

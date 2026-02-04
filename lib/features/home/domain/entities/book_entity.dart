@@ -9,9 +9,9 @@ class BookEntity extends Equatable {
     required this.image,
     required this.title,
     required this.authorName,
+    required this.category,
     this.price, // Optional - not all books have prices
     this.rating, // Optional - not all books have ratings
-    required this.category,
     this.previewLink, // Optional - preview might not be available
   });
 

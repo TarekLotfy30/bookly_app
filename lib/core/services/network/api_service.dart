@@ -3,7 +3,7 @@ import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 
 class ApiService {
   ApiService(this._dio) {
-    const Duration timeOut = Duration(seconds: 30);
+    const timeOut = Duration(seconds: 30);
     _dio.options = BaseOptions(
       baseUrl: 'https://www.googleapis.com/books/v1/',
       receiveDataWhenStatusError: true,
@@ -13,7 +13,6 @@ class ApiService {
       },
       connectTimeout: timeOut,
       receiveTimeout: timeOut,
-      responseType: ResponseType.json,
       validateStatus: (status) => status! < 500,
     );
     addDioInterceptor();
@@ -27,9 +26,6 @@ class ApiService {
         requestBody: true,
         requestHeader: true,
         responseHeader: true,
-        responseBody: true,
-        error: true,
-        compact: true,
       ),
     );
   }

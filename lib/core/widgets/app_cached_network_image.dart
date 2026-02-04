@@ -1,4 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 /*
@@ -35,11 +36,11 @@ import 'package:flutter/material.dart';
 
 class AppCachedNetworkImage extends StatelessWidget {
   const AppCachedNetworkImage({
-    super.key,
     required this.imageUrl,
     required this.memCacheHeight,
     required this.memCacheWidth,
     required this.fit,
+    super.key,
   });
 
   final String imageUrl;
@@ -48,43 +49,46 @@ class AppCachedNetworkImage extends StatelessWidget {
   final BoxFit fit;
 
   @override
-  Widget build(BuildContext context) {
-    return CachedNetworkImage(
-      imageUrl: imageUrl,
-      fit: fit,
-      filterQuality: FilterQuality.medium,
-      // ✅ استخدم ده دايماً في الـ Lists عشان الـ RAM والـ Scroll
-      // مثال: صور مصغرة للكتب، بروفايل يوزر في لستة
-      memCacheHeight: memCacheHeight,
-      memCacheWidth: memCacheWidth,
-      // ❌ سيب ده فاضي (Default) في أغلب الحالات
-      // إلا لو الصور اللي بتجيلك من اللينك حجمها "ميجا بايتس" كتير وعاوز توفر مساحة الهارد
-      // maxHeightDiskCache: 800,
-      fadeInDuration: const Duration(milliseconds: 500),
-      fadeInCurve: Curves.easeIn,
-      placeholderFadeInDuration: const Duration(milliseconds: 500),
-      placeholder: (context, url) => ColoredBox(
-        color: Theme.of(context).colorScheme.surfaceVariant,
-        child: Center(
-          child: CircularProgressIndicator(
-            strokeWidth: 2,
-            color: Theme.of(context).colorScheme.primary,
-          ),
+  Widget build(final BuildContext context) => CachedNetworkImage(
+    imageUrl: imageUrl,
+    fit: fit,
+    filterQuality: FilterQuality.medium,
+    // ✅ استخدم ده دايماً في الـ Lists عشان الـ RAM والـ Scroll
+    // مثال: صور مصغرة للكتب، بروفايل يوزر في لستة
+    memCacheHeight: memCacheHeight,
+    memCacheWidth: memCacheWidth,
+    placeholderFadeInDuration: const Duration(milliseconds: 500),
+    placeholder: (final context, final url) => ColoredBox(
+      color: Theme.of(context).colorScheme.primaryContainer,
+      child: Center(
+        child: CircularProgressIndicator(
+          strokeWidth: 2,
+          color: Theme.of(context).colorScheme.primary,
         ),
       ),
-      errorWidget: (context, url, error) => ColoredBox(
-        color: Theme.of(context).colorScheme.errorContainer,
-        child: Icon(
-          Icons.broken_image_outlined,
-          color: Theme.of(context).colorScheme.onErrorContainer,
-          size: 32,
-        ),
+    ),
+    errorWidget: (final context, final url, final error) => ColoredBox(
+      color: Theme.of(context).colorScheme.errorContainer,
+      child: Icon(
+        Icons.broken_image_outlined,
+        color: Theme.of(context).colorScheme.onErrorContainer,
+        size: 32,
       ),
-      // imageBuilder: (context, imageProvider) => Container(
-      //   decoration: BoxDecoration(
-      //     image: DecorationImage(image: imageProvider, fit: BoxFit.fill),
-      //   ),
-      // ),
-    );
+    ),
+    // imageBuilder: (context, imageProvider) => Container(
+    //   decoration: BoxDecoration(
+    //     image: DecorationImage(image: imageProvider, fit: BoxFit.fill),
+    //   ),
+    // ),
+  );
+
+  @override
+  void debugFillProperties(final DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(StringProperty('imageUrl', imageUrl))
+      ..add(IntProperty('memCacheHeight', memCacheHeight))
+      ..add(IntProperty('memCacheWidth', memCacheWidth))
+      ..add(EnumProperty<BoxFit>('fit', fit));
   }
 }

@@ -1,15 +1,16 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 class CustomElevatedButton extends StatelessWidget {
   const CustomElevatedButton({
-    super.key,
+    required this.buttonText,
     required this.onPressed,
+    super.key,
     this.horizontalPadding,
     this.verticalPadding,
     this.buttonBackgroundColor,
     this.buttonWidth,
     this.buttonHeight,
-    required this.buttonText,
     this.textStyle,
     this.topLeftBorderRadius,
     this.topRightBorderRadius,
@@ -31,31 +32,47 @@ class CustomElevatedButton extends StatelessWidget {
   final TextStyle? textStyle;
 
   @override
-  Widget build(BuildContext context) {
-    return ElevatedButton(
-      onPressed: onPressed,
-      style: ElevatedButton.styleFrom(
-        padding: EdgeInsets.symmetric(
-          horizontal: horizontalPadding ?? 14,
-          vertical: verticalPadding ?? 12,
-        ),
-        backgroundColor: buttonBackgroundColor ?? Colors.transparent,
-        elevation: 0,
-        minimumSize: Size(buttonWidth ?? double.maxFinite, buttonHeight ?? 45),
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(topLeftBorderRadius ?? 0),
-            topRight: Radius.circular(topRightBorderRadius ?? 0),
-            bottomLeft: Radius.circular(bottomLeftBorderRadius ?? 0),
-            bottomRight: Radius.circular(bottomRightBorderRadius ?? 0),
-          ),
-        ),
-        shadowColor: Colors.red,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-        tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-        surfaceTintColor: Colors.transparent,
+  Widget build(BuildContext context) => ElevatedButton(
+    onPressed: onPressed,
+    style: ElevatedButton.styleFrom(
+      padding: EdgeInsets.symmetric(
+        horizontal: horizontalPadding ?? 14,
+        vertical: verticalPadding ?? 12,
       ),
-      child: Text(buttonText, style: textStyle),
-    );
+      backgroundColor: buttonBackgroundColor ?? Colors.transparent,
+      elevation: 0,
+      minimumSize: Size(buttonWidth ?? double.maxFinite, buttonHeight ?? 45),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.only(
+          topLeft: Radius.circular(topLeftBorderRadius ?? 0),
+          topRight: Radius.circular(topRightBorderRadius ?? 0),
+          bottomLeft: Radius.circular(bottomLeftBorderRadius ?? 0),
+          bottomRight: Radius.circular(bottomRightBorderRadius ?? 0),
+        ),
+      ),
+      shadowColor: Colors.red,
+      visualDensity: VisualDensity.adaptivePlatformDensity,
+      tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+      surfaceTintColor: Colors.transparent,
+    ),
+    child: Text(buttonText, style: textStyle),
+  );
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(ObjectFlagProperty<VoidCallback>.has('onPressed', onPressed))
+      ..add(DoubleProperty('horizontalPadding', horizontalPadding))
+      ..add(DoubleProperty('verticalPadding', verticalPadding))
+      ..add(ColorProperty('buttonBackgroundColor', buttonBackgroundColor))
+      ..add(DoubleProperty('buttonWidth', buttonWidth))
+      ..add(DoubleProperty('buttonHeight', buttonHeight))
+      ..add(DoubleProperty('topLeftBorderRadius', topLeftBorderRadius))
+      ..add(DoubleProperty('topRightBorderRadius', topRightBorderRadius))
+      ..add(DoubleProperty('bottomLeftBorderRadius', bottomLeftBorderRadius))
+      ..add(DoubleProperty('bottomRightBorderRadius', bottomRightBorderRadius))
+      ..add(StringProperty('buttonText', buttonText))
+      ..add(DiagnosticsProperty<TextStyle?>('textStyle', textStyle));
   }
 }

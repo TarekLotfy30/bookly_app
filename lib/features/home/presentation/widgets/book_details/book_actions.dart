@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../../core/utils/functions/launch_url.dart';
@@ -7,7 +8,7 @@ import '../../../../../core/widgets/app_button_widget.dart';
 import '../../../domain/entities/book_entity.dart';
 
 class BookActions extends StatelessWidget {
-  const BookActions({super.key, required this.book});
+  const BookActions({required this.book, super.key});
 
   final BookEntity book;
 
@@ -35,10 +36,7 @@ class BookActions extends StatelessWidget {
             shadowColor: Colors.pink.shade200,
             child: CustomElevatedButton(
               onPressed: () async {
-                launchCustomUrl(
-                  context,
-                  book.previewLink,
-                );
+                await launchCustomUrl(context, book.previewLink);
               },
               buttonText: getText(book),
               textStyle: Styles.textStyle18.copyWith(
@@ -61,5 +59,11 @@ class BookActions extends StatelessWidget {
     } else {
       return 'Preview';
     }
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(DiagnosticsProperty<BookEntity>('book', book));
   }
 }

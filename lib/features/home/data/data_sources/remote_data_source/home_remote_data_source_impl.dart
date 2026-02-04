@@ -15,7 +15,7 @@ class HomeRemoteDataSourceImpl implements IHomeRemoteDataSource {
 
   @override
   Future<List<BookEntity>> fetchFeaturedBooks() async {
-    final Response<Map<String, dynamic>> responseData = await _apiService.get(
+    final responseData = await _apiService.get(
       endPoint: EndPoints.volume,
       params: {'Filtering': 'free-ebooks', 'q': 'subject:Programming'},
     );
@@ -25,7 +25,7 @@ class HomeRemoteDataSourceImpl implements IHomeRemoteDataSource {
 
   @override
   Future<List<BookEntity>> fetchNewestBooks() async {
-    final Response<Map<String, dynamic>> responseData = await _apiService.get(
+    final responseData = await _apiService.get(
       endPoint: EndPoints.volume,
       params: {
         'Filtering': 'free-ebooks',
@@ -39,7 +39,7 @@ class HomeRemoteDataSourceImpl implements IHomeRemoteDataSource {
 
   @override
   Future<List<BookEntity>> fetchSimilarBooks({required String category}) async {
-    final Response<Map<String, dynamic>> responseData = await _apiService.get(
+    final responseData = await _apiService.get(
       endPoint: EndPoints.volume,
       params: {
         'Filtering': 'free-ebooks',
@@ -64,9 +64,7 @@ class HomeRemoteDataSourceImpl implements IHomeRemoteDataSource {
         throw ServerFailure('No books found in response');
       }
 
-      final BookResponseModel bookModel = BookResponseModel.fromJson(
-        responseData.data!,
-      );
+      final bookModel = BookResponseModel.fromJson(responseData.data!);
 
       if (bookModel.items == null || bookModel.items!.isEmpty) {
         throw ServerFailure('Book list is empty');

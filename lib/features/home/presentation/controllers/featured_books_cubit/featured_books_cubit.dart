@@ -9,6 +9,7 @@ part 'featured_books_state.dart';
 
 class FeaturedBooksCubit extends Cubit<FeaturedBooksState> {
   FeaturedBooksCubit(this._useCase) : super(FeaturedBooksInitial());
+  // final FetchFeaturedBooksUseCase _useCase;
   final FetchFeaturedBooksUseCase _useCase;
 
   Future<void> fetchFeaturedBooks({bool forceRefresh = false}) async {
