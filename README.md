@@ -56,6 +56,7 @@ Bookly is a sleek and intuitive Flutter application for book lovers, offering fr
 
 ### :package: Key Packages
 
+<<<<<<< HEAD
 | Package                | Description                          |
 | ---------------------- | ------------------------------------ |
 | `flutter_bloc`         | BLoC/Cubit state management          |
