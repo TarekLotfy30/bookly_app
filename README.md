@@ -16,11 +16,11 @@ Bookly is a sleek and intuitive Flutter application for book lovers, offering fr
 
 | Splash Screen                      |Home                            |Search      |
 |------------------------------------|--------------------------------|------------|
-|<div align="center"><img src="https://github.com/TarekLotfy30/bookly_app/assets/117456407/ebf2476b-19df-48bf-9e90-994e4447e912" width="205"></div>                                   |<div align="center"><img src="https://github.com/user-attachments/assets/10dc4aaa-6ccd-405c-b9db-e332644a0df7" width="205"></div>                                |            |
+|<div align="center"><img src="https://github.com/TarekLotfy30/bookly_app/assets/117456407/ebf2476b-19df-48bf-9e90-994e4447e912" width="250"></div>                                   |<div align="center"><img src="https://github.com/user-attachments/assets/10dc4aaa-6ccd-405c-b9db-e332644a0df7" width="250"></div>                                |            |
 
 | Book Details                       |Preview Book                    |
 |------------------------------------|--------------------------------|
-|<div align="center"><img src="https://github.com/TarekLotfy30/bookly_app/assets/117456407/72f2d607-c1e4-44c0-910e-5b7984b30ac3" width="205"></div>                                    |<div align="center"><img src="https://github.com/TarekLotfy30/bookly_app/assets/117456407/0d86bded-734b-48f8-813f-92b224958e7c" width="205"></div>                               |
+|<div align="center"><img src="https://github.com/TarekLotfy30/bookly_app/assets/117456407/72f2d607-c1e4-44c0-910e-5b7984b30ac3" width="300"></div>                                    |<div align="center"><img src="https://github.com/TarekLotfy30/bookly_app/assets/117456407/0d86bded-734b-48f8-813f-92b224958e7c" width="300"></div>                               |
 
 ---
 
@@ -56,7 +56,6 @@ Bookly is a sleek and intuitive Flutter application for book lovers, offering fr
 
 ### :package: Key Packages
 
-<<<<<<< HEAD
 | Package                | Description                          |
 | ---------------------- | ------------------------------------ |
 | `flutter_bloc`         | BLoC/Cubit state management          |

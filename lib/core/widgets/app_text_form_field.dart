@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 import '../utils/colors/app_colors.dart';
@@ -84,45 +83,4 @@ class AppTextFormField extends StatelessWidget {
     ),
     style: Styles.textStyle14,
   );
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(
-        DiagnosticsProperty<TextEditingController?>('controller', controller),
-      )
-      ..add(DiagnosticsProperty<TextInputType?>('keyboardType', keyboardType))
-      ..add(EnumProperty<TextInputAction?>('textInputAction', textInputAction))
-      ..add(
-        EnumProperty<AutovalidateMode?>('autoValidateMode', autoValidateMode),
-      )
-      ..add(
-        ObjectFlagProperty<void Function(String)?>.has('onChanged', onChanged),
-      )
-      ..add(
-        DiagnosticsProperty<EdgeInsetsGeometry?>(
-          'contentPadding',
-          contentPadding,
-        ),
-      )
-      ..add(DiagnosticsProperty<InputBorder?>('enabledBorder', enabledBorder))
-      ..add(DiagnosticsProperty<InputBorder?>('focusedBorder', focusedBorder))
-      ..add(DiagnosticsProperty<InputBorder?>('errorBorder', errorBorder))
-      ..add(
-        DiagnosticsProperty<InputBorder?>(
-          'focusedErrorBorder',
-          focusedErrorBorder,
-        ),
-      )
-      ..add(DiagnosticsProperty<TextStyle?>('hintStyle', hintStyle))
-      ..add(StringProperty('hintText', hintText))
-      ..add(DiagnosticsProperty<bool?>('isObscureText', isObscureText))
-      ..add(
-        ObjectFlagProperty<String? Function(String?)?>.has(
-          'validator',
-          validator,
-        ),
-      );
-  }
 }
