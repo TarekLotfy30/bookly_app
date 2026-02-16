@@ -47,3 +47,6 @@ seamless and responsive exploration of a diverse library of books.
 <img src="https://github.com/TarekLotfy30/bookly_app/assets/117456407/279f0c8f-b0fd-44e8-84cb-1c5c8045f1c1" width="200">
 <img src="https://github.com/TarekLotfy30/bookly_app/assets/117456407/72f2d607-c1e4-44c0-910e-5b7984b30ac3" width="200">
 <img src="https://github.com/TarekLotfy30/bookly_app/assets/117456407/0d86bded-734b-48f8-813f-92b224958e7c" width="200">
+
+![Screenshot_20260216114602](https://github.com/user-attachments/assets/9bff2694-9e56-4332-af46-f073460b5ac3)
+
