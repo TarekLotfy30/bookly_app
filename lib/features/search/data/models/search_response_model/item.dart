@@ -5,6 +5,15 @@ import 'search_info.dart';
 import 'volume_info.dart';
 
 class Item extends SearchBookEntity {
+  final String? kind;
+  final String? id;
+  final String? etag;
+  final String? selfLink;
+  final VolumeInfo? volumeInfo;
+  final SaleInfo? saleInfo;
+  final AccessInfo? accessInfo;
+  final SearchInfo? searchInfo;
+
   Item({
     this.kind,
     this.id,
@@ -42,24 +51,4 @@ class Item extends SearchBookEntity {
         ? null
         : SearchInfo.fromJson(json['searchInfo'] as Map<String, dynamic>),
   );
-
-  final String? kind;
-  final String? id;
-  final String? etag;
-  final String? selfLink;
-  final VolumeInfo? volumeInfo;
-  final SaleInfo? saleInfo;
-  final AccessInfo? accessInfo;
-  final SearchInfo? searchInfo;
-
-  Map<String, dynamic> toJson() => {
-    'kind': kind,
-    'id': id,
-    'etag': etag,
-    'selfLink': selfLink,
-    'volumeInfo': volumeInfo?.toJson(),
-    'saleInfo': saleInfo?.toJson(),
-    'accessInfo': accessInfo?.toJson(),
-    'searchInfo': searchInfo?.toJson(),
-  };
 }

@@ -7,13 +7,15 @@ import '../../../domain/entity/search_book_entity.dart';
 import '../../models/search_response_model/search_response_model.dart';
 
 class SearchBookDataSource {
-  SearchBookDataSource(this._apiService);
+  SearchBookDataSource({required ApiService apiService})
+    : _apiService = apiService;
+
   final ApiService _apiService;
 
   Future<List<SearchBookEntity>> searchBooks(String query) async {
     final responseData = await _apiService.get(
       endPoint: EndPoints.volumes,
-      params: {'Filtering': 'free-ebooks', 'q': query, "maxResults": '20'},
+      params: {'q': query, "maxResults": '20'},
     );
 
     if (responseData.statusCode == 200) {

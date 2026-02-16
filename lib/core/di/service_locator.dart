@@ -6,6 +6,8 @@ import '../../features/home/data/repo_implementation/home_repo_impl.dart';
 import '../../features/home/domain/use_cases/fetch_featured_books_use_case.dart';
 import '../../features/home/domain/use_cases/fetch_newest_books_use_case.dart';
 import '../../features/home/domain/use_cases/fetch_similar_books_use_case.dart';
+import '../../features/search/data/data_source/remote_data_source/search_book_data_source.dart';
+import '../../features/search/data/repo/search_book_repo.dart';
 import '../services/network/api_service.dart';
 
 /// Global instance of [GetIt] for service location and dependency injection.
@@ -31,6 +33,14 @@ Future<void> setupServiceLocator() async {
     // Home Repo
     ..registerSingleton<HomeRepoImpl>(
       HomeRepoImpl(remoteDataSource: getIt.get<HomeRemoteDataSourceImpl>()),
+    )
+    // Search Data source
+    ..registerSingleton<SearchBookDataSource>(
+      SearchBookDataSource(apiService: getIt.get<ApiService>()),
+    )
+    // Search Repo
+    ..registerSingleton<SearchBookRepo>(
+      SearchBookRepo(searchBookDataSource: getIt.get<SearchBookDataSource>()),
     )
     // UseCases
     ..registerSingleton<FetchFeaturedBooksUseCase>(

@@ -14,9 +14,11 @@ Bookly is a sleek and intuitive Flutter application for book lovers, offering fr
 
 <!-- <div align="center"><img src="https://github.com/user-attachments/assets/10dc4aaa-6ccd-405c-b9db-e332644a0df7" width="205"></div> -->
 
+<div align="center"><img src="https://github.com/user-attachments/assets/1b4c18d4-623d-4a60-a6a6-67cdff8d37f3" width="205"></div>
+
 | Splash Screen                      |Home                            |Search      |
 |------------------------------------|--------------------------------|------------|
-|<div align="center"><img src="https://github.com/TarekLotfy30/bookly_app/assets/117456407/ebf2476b-19df-48bf-9e90-994e4447e912" width="250"></div>                                   |<div align="center"><img src="https://github.com/user-attachments/assets/10dc4aaa-6ccd-405c-b9db-e332644a0df7" width="250"></div>                                |            |
+|<div align="center"><img src="https://github.com/TarekLotfy30/bookly_app/assets/117456407/ebf2476b-19df-48bf-9e90-994e4447e912" width="250"></div>                                   |<div align="center"><img src="https://github.com/user-attachments/assets/10dc4aaa-6ccd-405c-b9db-e332644a0df7" width="250"></div>                                |<div align="center"><img src="https://github.com/user-attachments/assets/1b4c18d4-623d-4a60-a6a6-67cdff8d37f3" width="205"></div>            |
 
 | Book Details                       |Preview Book                    |
 |------------------------------------|--------------------------------|

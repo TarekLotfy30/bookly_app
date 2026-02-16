@@ -6,7 +6,8 @@ import '../../domain/entity/search_book_entity.dart';
 import '../data_source/remote_data_source/search_book_data_source.dart';
 
 class SearchBookRepo {
-  SearchBookRepo(this._searchBookDataSource);
+  SearchBookRepo({required SearchBookDataSource searchBookDataSource})
+    : _searchBookDataSource = searchBookDataSource;
 
   final SearchBookDataSource _searchBookDataSource;
 

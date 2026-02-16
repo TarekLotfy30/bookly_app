@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../core/utils/functions/functions.dart';
 import '../../../../core/utils/styles/text_style.dart';
 import '../../../../core/widgets/app_text_form_field.dart';
+import '../controller/cubit/search_book_cubit.dart';
 import 'search_result_list_view.dart';
 
 class SearchViewBody extends StatelessWidget {
@@ -10,14 +12,16 @@ class SearchViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Padding(
-    padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 30),
+    padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 30),
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         AppTextFormField(
           validator: (value) => null,
           hintText: 'Search',
-          onChanged: (value) {},
+          onChanged: (value) async {
+            await BlocProvider.of<SearchBookCubit>(context).searchBooks(value);
+          },
           suffixIcon: const Icon(Icons.search),
         ),
         verticalSpacing(16),
