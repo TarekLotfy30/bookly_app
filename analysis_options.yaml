@@ -36,7 +36,7 @@ analyzer:
     # Treat todo comments as info
     todo: info
     # Treat deprecated member use as warning
-    deprecated_member_use: warning
+    deprecated_member_use: warning  
     # Treat unused imports as errors
     unused_import: error
     # Treat unused local variables as warnings
@@ -271,7 +271,7 @@ linter:
     - prefer_for_elements_to_map_fromIterable
 
     # ===== ADDITIONAL BEST PRACTICES =====
-    - always_put_required_named_parameters_first
+    # - always_put_required_named_parameters_first
     - always_require_non_null_named_parameters
     - annotate_redeclares
     - avoid_annotating_with_dynamic
@@ -320,7 +320,7 @@ linter:
     - list_remove_unrelated_type
     - implicit_call_tearoffs
     - invalid_case_patterns
-    - diagnostic_describe_all_properties
+    # - diagnostic_describe_all_properties
 
     # ===== BEST PRACTICES =====
     - avoid_multiple_declarations_per_line

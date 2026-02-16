@@ -1,13 +1,12 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../../core/widgets/custom_loading_indicator.dart';
+import '../../../../../core/widgets/app_cached_network_image.dart';
 
 class CustomBookDetailsImage extends StatelessWidget {
   const CustomBookDetailsImage({
-    super.key,
     required this.image,
     required this.bookId,
+    super.key,
   });
 
   final String image;
@@ -21,11 +20,11 @@ class CustomBookDetailsImage extends StatelessWidget {
         borderRadius: BorderRadius.circular(20),
         child: AspectRatio(
           aspectRatio: 2.6 / 4,
-          child: CachedNetworkImage(
+          child: AppCachedNetworkImage(
             imageUrl: image,
             fit: BoxFit.fill,
-            placeholder: (context, url) => const CustomLoadingIndicator(),
-            errorWidget: (context, url, error) => const Icon(Icons.error),
+            memCacheHeight: 600,
+            memCacheWidth: 600,
           ),
         ),
       ),

@@ -9,7 +9,7 @@ import 'book_actions.dart';
 import 'custom_book_details_image.dart';
 
 class BookDetailsSection extends StatelessWidget {
-  const BookDetailsSection({super.key, required this.book});
+  const BookDetailsSection({required this.book, super.key});
 
   final BookEntity book;
 

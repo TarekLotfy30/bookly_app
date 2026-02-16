@@ -16,16 +16,12 @@ class NewestBooksListView extends StatelessWidget {
         index,
       ) {
         return Padding(
-          key: ValueKey(
-            'book-list-item-${books[index].bookId}',
-          ), // Add unique key
           padding: const EdgeInsets.symmetric(
             vertical: AppPadding.p10,
             horizontal: AppPadding.p20,
           ),
           child: NewestBooksItem(
             book: books[index],
-            key: ValueKey('book-${books[index].bookId}'),
           ), // Key on actual widget too
         );
       }),

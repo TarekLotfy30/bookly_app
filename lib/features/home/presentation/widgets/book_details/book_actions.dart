@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../../core/utils/functions/launch_url.dart';
@@ -61,9 +60,4 @@ class BookActions extends StatelessWidget {
     }
   }
 
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties.add(DiagnosticsProperty<BookEntity>('book', book));
-  }
 }

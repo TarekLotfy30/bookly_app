@@ -1,5 +1,4 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 /*
@@ -52,7 +51,8 @@ class AppCachedNetworkImage extends StatelessWidget {
   Widget build(final BuildContext context) => CachedNetworkImage(
     imageUrl: imageUrl,
     fit: fit,
-    filterQuality: FilterQuality.medium,
+    filterQuality: FilterQuality.high,
+    cacheKey: imageUrl,
     // ✅ استخدم ده دايماً في الـ Lists عشان الـ RAM والـ Scroll
     // مثال: صور مصغرة للكتب، بروفايل يوزر في لستة
     memCacheHeight: memCacheHeight,
@@ -60,12 +60,7 @@ class AppCachedNetworkImage extends StatelessWidget {
     placeholderFadeInDuration: const Duration(milliseconds: 500),
     placeholder: (final context, final url) => ColoredBox(
       color: Theme.of(context).colorScheme.primaryContainer,
-      child: Center(
-        child: CircularProgressIndicator(
-          strokeWidth: 2,
-          color: Theme.of(context).colorScheme.primary,
-        ),
-      ),
+      child: const Center(child: CircularProgressIndicator()),
     ),
     errorWidget: (final context, final url, final error) => ColoredBox(
       color: Theme.of(context).colorScheme.errorContainer,
@@ -75,20 +70,10 @@ class AppCachedNetworkImage extends StatelessWidget {
         size: 32,
       ),
     ),
-    // imageBuilder: (context, imageProvider) => Container(
-    //   decoration: BoxDecoration(
-    //     image: DecorationImage(image: imageProvider, fit: BoxFit.fill),
-    //   ),
-    // ),
+    imageBuilder: (context, imageProvider) => Container(
+      decoration: BoxDecoration(
+        image: DecorationImage(image: imageProvider, fit: BoxFit.fill),
+      ),
+    ),
   );
-
-  @override
-  void debugFillProperties(final DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(StringProperty('imageUrl', imageUrl))
-      ..add(IntProperty('memCacheHeight', memCacheHeight))
-      ..add(IntProperty('memCacheWidth', memCacheWidth))
-      ..add(EnumProperty<BoxFit>('fit', fit));
-  }
 }

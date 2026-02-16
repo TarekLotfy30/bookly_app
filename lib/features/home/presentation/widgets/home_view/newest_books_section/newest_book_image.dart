@@ -13,7 +13,7 @@ class BookImage extends StatelessWidget {
     return Hero(
       tag: 'book-cover-$bookId',
       child: SizedBox(
-        height: 125,
+        height: 120,
         child: ClipRRect(
           borderRadius: BorderRadius.circular(16),
           child: AspectRatio(
