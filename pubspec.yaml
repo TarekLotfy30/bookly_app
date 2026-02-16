@@ -2,42 +2,58 @@ name: bookly
 description: "A new Flutter project."
 publish_to: 'none'
 
+
 version: 1.0.0+1
 
 environment:
   sdk: ^3.10.7
 
 dependencies:
-
-  animated_text_kit: ^4.3.0
-  bloc: ^9.2.0
-  cached_network_image: ^3.4.1
-  carousel_slider: ^5.1.1
-  cupertino_icons: ^1.0.8
-  dartz: ^0.10.1
-  dio: ^5.4.3+1
-  equatable: ^2.0.8
   flutter:
     sdk: flutter
-  flutter_bloc: ^9.1.1
-  font_awesome_flutter: ^10.12.0
-  get_it: ^9.2.0
-  go_router: ^17.0.1
-  google_fonts: ^7.1.0
-  hive: ^2.2.3
-  hive_flutter: ^1.1.0
-  infinite_carousel: ^1.1.1
-  pretty_dio_logger: ^1.3.1
-  shimmer: ^3.0.0
-  url_launcher: ^6.3.2    
+
+  # State Management
+  flutter_bloc: ^9.1.1       # BLoC/Cubit state management
+  bloc: ^9.2.0               # Core BLoC library
+  equatable: ^2.0.8          # Simplifies state/model comparison
+  dartz: ^0.10.1             # Functional programming (Either/Error handling)
+
+  # Dependency Injection
+  get_it: ^9.2.0             # Service locator / DI
+
+  # Networking
+  dio: ^5.4.3+1              # HTTP client
+  pretty_dio_logger: ^1.3.1  # Logs network requests/responses
+  url_launcher: ^6.3.2       # Open external links
+
+  # Routing
+  go_router: ^17.0.1         # Declarative routing & deep linking
+
+  # UI & Animations
+  animated_text_kit: ^4.3.0  # Pre-built text animations
+  carousel_slider: ^5.1.1    # Image slider component
+  infinite_carousel: ^1.1.1  # Infinite carousel widget
+  shimmer: ^3.0.0            # Loading placeholders
+
+  # Images
+  cached_network_image: ^3.4.1 # Efficient image caching
+
+  # Fonts & Icons
+  google_fonts: ^7.1.0        # Custom fonts
+  font_awesome_flutter: ^10.12.0 # Icon pack
+  cupertino_icons: ^1.0.8     # iOS system icons
+
+  # Local Storage
+  hive: ^2.2.3               # Lightweight DB
+  hive_flutter: ^1.1.0       # Hive integration with Flutter
 
 dev_dependencies:
-
-  bloc_lint: ^0.3.0
-  build_runner: ^2.4.13
-  flutter_lints: ^6.0.0
   flutter_test:
     sdk: flutter
+
+  flutter_lints: ^6.0.0
+  bloc_lint: ^0.3.0
+  build_runner: ^2.4.13
   hive_generator: ^2.0.0
 
 flutter:

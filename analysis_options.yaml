@@ -309,7 +309,7 @@ linter:
     - prefer_generic_function_type_aliases
     - prefer_null_aware_method_calls
     # - public_member_api_docs
-    - sort_pub_dependencies
+    # - sort_pub_dependencies
     - test_types_in_equals
     - unnecessary_string_escapes
     - unsafe_html
