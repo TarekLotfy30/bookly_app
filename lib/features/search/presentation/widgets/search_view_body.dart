@@ -27,6 +27,13 @@ class SearchViewBody extends StatelessWidget {
         verticalSpacing(16),
         const Text('Search Result', style: Styles.textStyle18),
         verticalSpacing(16),
+        Visibility(
+          visible:
+              BlocProvider.of<SearchBookCubit>(context).state
+                  is SearchBookLoading,
+          child: const LinearProgressIndicator(),
+        ),
+        verticalSpacing(16),
         const Expanded(child: SearchResultListView()),
       ],
     ),

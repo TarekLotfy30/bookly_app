@@ -1,4 +1,5 @@
 import 'package:bloc/bloc.dart';
+import 'package:easy_debounce/easy_debounce.dart';
 import 'package:equatable/equatable.dart';
 
 import '../../../data/repo/search_book_repo.dart';
@@ -11,12 +12,32 @@ class SearchBookCubit extends Cubit<SearchBookState> {
 
   final SearchBookRepo _booksRepository;
 
+  String? _currentQuery;
+
   Future<void> searchBooks(String query) async {
-    emit(SearchBookLoading());
-    final result = await _booksRepository.searchBooks(query);
-    result.fold(
-      (failure) => emit(SearchBookFailure(failure.errMessage)),
-      (books) => emit(SearchBookSuccess(books)),
+    EasyDebounce.debounce(
+      'search-books-debounce',
+      const Duration(milliseconds: 400),
+      () async {
+        final trimmedQuery = query.trim();
+        if (trimmedQuery.length <= 2) {
+          return;
+        }
+
+        _currentQuery = trimmedQuery;
+        emit(SearchBookLoading());
+
+        final result = await _booksRepository.searchBooks(trimmedQuery);
+
+        if (_currentQuery != trimmedQuery) {
+          return;
+        }
+
+        result.fold(
+          (failure) => emit(SearchBookFailure(failure.errMessage)),
+          (books) => emit(SearchBookSuccess(books)),
+        );
+      },
     );
   }
 }

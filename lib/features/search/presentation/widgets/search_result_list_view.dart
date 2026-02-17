@@ -37,23 +37,6 @@ class SearchResultListView extends StatelessWidget {
             itemCount: 10,
             itemBuilder: (context, index) => const NewestBooksShimmerItem(),
           ),
-          // SeaokFailure(:final errorMessage) => Center(
-          //   child: CustomErrorWidget(
-          //     errorMessage: errorMessage,
-          //     onRetry: () async {
-          //       final currentQuery =
-          //           context.read<SearchBookCubit>()
-          //.state is SearchBookSuccess
-          //           ? (context.read<SearchBookCubit>().state
-          //                     as SearchBookSuccess)
-          //                 .books
-          //           : '';
-          //       await context.read<SearchBookCubit>().searchBooks(
-          //         currentQuery.toString(),
-          //       );
-          //     },
-          //   ),
-          // ),
           SearchBookFailure(:final errorMessage) => Center(
             child: Text(
               errorMessage,

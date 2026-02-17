@@ -30,7 +30,7 @@ Bookly is a sleek and intuitive Flutter application for book lovers, offering fr
 - **Home Page**: Browse featured books in an auto-playing carousel and scroll through a list of the newest additions.
 - **Detailed Book Views**: Get in-depth information about each book, including the author, ratings, and category
 - **Free Previews**: Access book previews via external links, allowing users to sample content before they commit.
-- **Search Functionality**: Find books with ease using the integrated search functionality.
+- **Search Functionality**: Find books with ease using the search functionality with debounce.
 - **UI/UX**: Enjoy a smooth, visually appealing interface with a dark theme, shimmer loading effects, and fluid animations .
 - **Responsive Design**: A consistent experience across different screen sizes.
 
@@ -64,6 +64,7 @@ Bookly is a sleek and intuitive Flutter application for book lovers, offering fr
 | `dartz`                | Functional error handling            |
 | `get_it`               | Dependency injection locator         |
 | `dio`                  | HTTP client                          |
+| `easy_debounce`        | Debounce user input                  |
 | `pretty_dio_logger`    | Network request logger               |
 | `go_router`            | Declarative routing                  |
 | `cached_network_image` | Image caching                        |
@@ -82,7 +83,11 @@ Bookly is a sleek and intuitive Flutter application for book lovers, offering fr
 <summary> Full pubspec.yaml dependencies </summary>
 
 ```yaml
-# State Management
+dependencies:
+  flutter:
+    sdk: flutter
+  
+  # State Management
   flutter_bloc: ^9.1.1       # BLoC/Cubit state management
   bloc: ^9.2.0               # Core BLoC library
   equatable: ^2.0.8          # Simplifies state/model comparison
@@ -95,6 +100,8 @@ Bookly is a sleek and intuitive Flutter application for book lovers, offering fr
   dio: ^5.4.3+1              # HTTP client
   pretty_dio_logger: ^1.3.1  # Logs network requests/responses
   url_launcher: ^6.3.2       # Open external links
+  easy_debounce: ^2.0.3      # Debounce user input (e.g., search)
+
 
   # Routing
   go_router: ^17.0.1         # Declarative routing & deep linking
@@ -132,6 +139,8 @@ Bookly is a sleek and intuitive Flutter application for book lovers, offering fr
     │   ├── errors/      # Custom failure classes.
     │   ├── routes/      # GoRouter configuration.
     │   ├── services/    # API service (Dio) and local storage (Hive).
+    │   ├── utils/       # Common utilities.
+    │   ├── usecase/     # use cases.
     │   └── widgets/     # Common reusable widgets.
     ├── features/        
     │   └── home/        # Example: Home feature.
