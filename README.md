@@ -14,13 +14,13 @@ Bookly is a sleek and intuitive Flutter application for book lovers, offering fr
 
 <!-- <div align="center"><img src="https://github.com/user-attachments/assets/10dc4aaa-6ccd-405c-b9db-e332644a0df7" width="205"></div> -->
 
-| Splash Screen                      |Home                            |Search      |
-|------------------------------------|--------------------------------|------------|
-|<div align="center"><img src="https://github.com/TarekLotfy30/bookly_app/assets/117456407/ebf2476b-19df-48bf-9e90-994e4447e912" width="300"></div>                                   |<div align="center"><img src="https://github.com/user-attachments/assets/10dc4aaa-6ccd-405c-b9db-e332644a0df7" width="300"></div>                                |<div align="center"><img src="https://github.com/user-attachments/assets/1b4c18d4-623d-4a60-a6a6-67cdff8d37f3" width="300"></div>            |
+| Splash Screen     |Home         |Home With Shimmer  |
+|-------------------|-------------|-------------------|
+|<div align="center"><img src="https://github.com/TarekLotfy30/bookly_app/assets/117456407/ebf2476b-19df-48bf-9e90-994e4447e912" width="300"></div>                   |<div align="center"><img src="https://github.com/user-attachments/assets/10dc4aaa-6ccd-405c-b9db-e332644a0df7" width="300"></div>             |<div align="center"><img src="https://github.com/user-attachments/assets/0194923b-4a72-4876-8e52-194d83fe82a0" width="300"></div>                   |
 
-| Book Details                       |Preview Book                    |
-|------------------------------------|--------------------------------|
-|<div align="center"><img src="https://github.com/TarekLotfy30/bookly_app/assets/117456407/72f2d607-c1e4-44c0-910e-5b7984b30ac3" width="300"></div>                                    |<div align="center"><img src="https://github.com/TarekLotfy30/bookly_app/assets/117456407/0d86bded-734b-48f8-813f-92b224958e7c" width="300"></div>                               |
+| Book Details                       |Preview Book                    |Search Book     |
+|------------------------------------|--------------------------------|----------------|
+|<div align="center"><img src="https://github.com/TarekLotfy30/bookly_app/assets/117456407/72f2d607-c1e4-44c0-910e-5b7984b30ac3" width="300"></div>                                    |<div align="center"><img src="https://github.com/TarekLotfy30/bookly_app/assets/117456407/0d86bded-734b-48f8-813f-92b224958e7c" width="300"></div>                               |<div align="center"><img src="https://github.com/user-attachments/assets/8f79db9c-834d-4fd8-ac6d-59e4230fde15" width="300"></div>                                                    |
 
 ---
 
